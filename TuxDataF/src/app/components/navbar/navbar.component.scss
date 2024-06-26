@@ -1,0 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,500;1,100;1,500;&display=swap');
+
+
+.mainNav{
+  background-color: #0f3f4e;
+  height: 5rem;
+  font-family: "Poppins", sans-serif;
+}
+.brand{
+  color: white;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+  .logo{
+    width: 50px;
+    margin-left:25px;
+  }
+
+  @media screen and (max-width: 991px){
+    .logo{
+      display: none;
+    }
+  }
+
+  .card-body{
+    background-color:#0f3f4e;
+    border: none
+  }
+
+.font{
+  color: #00b9ab;
+  font-weight: bold;
+}
+.font:hover{
+  color: #ffffff;
+  transition: 0.1s;
+  transform:scale(1.02);
+  background-color: transparent;
+}
+.dropDiv{
+  background-color: #0f3f4e;
+}
+.collapse{
+  z-index: 1;
+}
+
+

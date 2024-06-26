@@ -1,1 +1,43 @@
-<p>navbar works!</p>
+<nav class="navbar navbar-expand-lg mainNav">
+	<div class="container-fluid">
+		<a class="navbar-brand brand" routerLink="/"><img class="logo" src="http://res.cloudinary.com/dz2dgihhs/image/upload/v1719086290/bubu_avatar.png"></a>
+
+		<button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
+
+		<div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
+			<ul class="navbar-nav card card-body d-flex justify-content-end">
+				<li class="nav-item active">
+					<a class="nav-link font" routerLink="/" (click)="isMenuCollapsed = true">Home</a>
+				</li>
+        <li class="nav-item">
+          <a class="nav-link font" routerLink="/auth/login" (click)="isMenuCollapsed = true" *ngIf="!isUserLoggedIn">Login</a>
+				</li>
+        <li class="nav-item">
+          <a class="nav-link font" routerLink="/auth/register" (click)="isMenuCollapsed = true" *ngIf="!isUserLoggedIn">Register</a>
+				</li>
+        <li class="nav-item">
+          <a class="nav-link font" routerLink="/auth/backoffice" (click)="isMenuCollapsed = true" *ngIf="isAdmin">Backoffice</a>
+				</li>
+        <li class="nav-item">
+          <div class="row">
+            <div class="col">
+              <div ngbDropdown class="d-inline-block">
+                <button type="button" class="btn nav-link border-0 font" id="dropdownBasic1" ngbDropdownToggle *ngIf="isUserLoggedIn">
+                Categories
+              </button>
+              <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropDiv">
+                <button class="font" routerLink="categories/new-release" ngbDropdownItem>New Release</button>
+                <button class="font" routerLink="categories/dc"ngbDropdownItem>DE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link font" routerLink="/userCart" (click)="isMenuCollapsed = true" *ngIf="isUserLoggedIn">User</a>
+      </li>
+    </ul>
+    <button (click)="logout()" *ngIf="isUserLoggedIn" class="btn btn-danger">Esci</button>
+		</div>
+	</div>
+</nav>

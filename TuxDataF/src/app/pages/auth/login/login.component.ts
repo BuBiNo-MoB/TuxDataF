@@ -11,7 +11,7 @@ import { iLoginData } from '../../../models/login-data';
 export class LoginComponent {
 
   loginData: iLoginData = {
-    username: 'mario@varano.it',
+    username: 'bubu',
     password: 'password'
   };
 
