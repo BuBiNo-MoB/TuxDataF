@@ -1,6 +1,6 @@
 import { iRole } from "./role"
 
-export interface User {
+export interface iUser {
   id: number
   firstName: string
   lastName: string
