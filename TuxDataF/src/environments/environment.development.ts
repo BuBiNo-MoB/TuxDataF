@@ -1,6 +1,6 @@
 export const environment = {
-  userUrl: "http://localhost:3000/users",
-  distroUrl: "http://localhost:3000/distributions",
+  userUrl: "http://localhost:8080/users",
+  distroUrl: "http://localhost:8080/distributions",
   registerUrl: "http://localhost:8080/users",
   loginUrl: "http://localhost:8080/users/login",
 };

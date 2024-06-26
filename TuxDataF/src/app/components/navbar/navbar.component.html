@@ -34,7 +34,7 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link font" routerLink="/userCart" (click)="isMenuCollapsed = true" *ngIf="isUserLoggedIn">User</a>
+        <a class="nav-link font" routerLink="/profile" (click)="isMenuCollapsed = true" *ngIf="isUserLoggedIn">Profile</a>
       </li>
     </ul>
     <button (click)="logout()" *ngIf="isUserLoggedIn" class="btn btn-danger">Esci</button>

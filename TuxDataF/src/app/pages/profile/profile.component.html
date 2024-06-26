@@ -1,0 +1,16 @@
+<div id="main" class="container-fluid">
+  <div class="row justify-content-center text-center">
+    <div class="col-lg-4 col-md-6 col-sm-8">
+      <div class="card mt-5 mb-5">
+        <div *ngIf="currentUser">
+          <div class="card-body">
+            <h3 class="card-title pt-4">{{ currentUser.username}}</h3>
+            <h5 class="card-title pt-4">{{ currentUser.firstName }} {{ currentUser.lastName }}</h5>
+            <p class="card-text pt-3">Email: <br>{{ currentUser.email }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

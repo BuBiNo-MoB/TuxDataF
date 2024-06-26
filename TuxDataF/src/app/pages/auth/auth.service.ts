@@ -122,4 +122,8 @@ export class AuthService {
         return new Error('Errore');
     }
   }
+
+  getCurrentUser(): Observable<iUser | null> {
+    return this.authSubject.asObservable();
+  }
 }
