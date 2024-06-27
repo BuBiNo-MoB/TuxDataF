@@ -1,6 +1,6 @@
 <h1>Registrati</h1>
 
-<form>
+<form (submit)="signUp($event)">
 
   <input type="text" name="nome"
   [(ngModel)]="registerData.firstName"
@@ -22,6 +22,8 @@
   [(ngModel)]="registerData.password"
   class="form-control" placeholder="password">
 
-  <button (click)="signUp()" class="btn btn-success">Registrati</button>
+  <input type="file" (change)="onFileSelected($event)" class="form-control">
+
+  <button type="submit" class="btn btn-success">Registrati</button>
 
 </form>

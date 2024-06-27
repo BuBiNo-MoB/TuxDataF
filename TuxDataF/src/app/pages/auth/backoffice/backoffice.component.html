@@ -1,8 +1,8 @@
 <div class="main-container">
   <div class="container">
     <div class="form_area p-5">
-      <p class="title">Aggiungi un nuovo prodotto!</p>
-      <form>
+      <p class="title">Aggiungi una nuova distribuzione!</p>
+      <form (ngSubmit)="createDistribution()" #distributionForm="ngForm">
         <div class="form_group">
           <label class="sub_title" for="name">Nome</label>
           <input
@@ -11,6 +11,7 @@
             class="form_style"
             type="text"
             [(ngModel)]="newDistribution.name"
+            required
           />
         </div>
         <div class="form_group">
@@ -21,6 +22,7 @@
             class="form_style"
             type="text"
             [(ngModel)]="newDistribution.currentVersion"
+            required
           />
         </div>
         <div class="form_group">
@@ -31,6 +33,7 @@
             class="form_style"
             type="date"
             [(ngModel)]="newDistribution.releaseDate"
+            required
           />
         </div>
         <div class="form_group">
@@ -41,6 +44,7 @@
             class="form_style"
             type="text"
             [(ngModel)]="newDistribution.description"
+            required
           />
         </div>
         <div class="form_group">
@@ -51,6 +55,7 @@
             class="form_style"
             type="text"
             [(ngModel)]="newDistribution.officialWebsite"
+            required
           />
         </div>
         <div class="form_group">
@@ -61,6 +66,7 @@
             class="form_style"
             type="text"
             [(ngModel)]="newDistribution.baseDistro"
+            required
           />
         </div>
         <div class="form_group">
@@ -71,6 +77,7 @@
             class="form_style"
             type="text"
             [(ngModel)]="newDistribution.supportedArchitecture"
+            required
           />
         </div>
         <div class="form_group">
@@ -81,6 +88,7 @@
             class="form_style"
             type="text"
             [(ngModel)]="newDistribution.packageType"
+            required
           />
         </div>
         <div class="form_group">
@@ -94,27 +102,25 @@
           />
         </div>
         <div class="form_group">
-          <label class="sub_title" for="logoUrl">Logo</label>
+          <label class="sub_title" for="logo">Logo</label>
           <input
-            name="logoUrl"
-            placeholder="Inserisci il logo"
+            name="logo"
             class="form_style"
-            type="text"
-            [(ngModel)]="newDistribution.logoUrl"
+            type="file"
+            (change)="onFileSelected($event, 'logo')"
           />
         </div>
         <div class="form_group">
-          <label class="sub_title" for="desktopImageUrl">URL immagine desktop</label>
+          <label class="sub_title" for="desktopImage">URL immagine desktop</label>
           <input
-            name="desktopImageUrl"
-            placeholder="Inserisci l'URL dell'immagine desktop"
+            name="desktopImage"
             class="form_style"
-            type="text"
-            [(ngModel)]="newDistribution.desktopImageUrl"
+            type="file"
+            (change)="onFileSelected($event, 'desktopImage')"
           />
         </div>
         <div>
-          <button (click)="createDistribution()" class="btn">Crea ora</button>
+          <button type="submit" class="btn" [disabled]="!distributionForm.form.valid">Crea ora</button>
         </div>
       </form>
     </div>

@@ -11,15 +11,43 @@ import { iDistribution } from '../../../models/distribution';
 export class EditProductComponent {
 
   distribution!: iDistribution;
+  logoFile: File | null = null;
+  desktopImageFile: File | null = null;
 
-  constructor(private route: ActivatedRoute, private distributionSvc: DistributionService, private router: Router) {
+  constructor(
+    private route: ActivatedRoute,
+    private distroSvc: DistributionService,
+    private router: Router
+  ) {
     this.route.params.subscribe(params => {
-      let distributionId = params['id'];
-      distributionSvc.getDistributionById(distributionId).subscribe(distribution => this.distribution = distribution);
+      const distributionId = params['id'];
+      this.distroSvc.getDistributionById(distributionId).subscribe(distribution => this.distribution = distribution);
     });
   }
 
-  editDistribution(distribution: iDistribution) {
-    this.distributionSvc.editDistribution(distribution).subscribe(() => this.router.navigate(['/']));
+  onFileSelected(event: Event, type: 'logo' | 'desktopImage'): void {
+    const file = (event.target as HTMLInputElement).files?.[0];
+    if (file) {
+      if (type === 'logo') {
+        this.logoFile = file;
+      } else if (type === 'desktopImage') {
+        this.desktopImageFile = file;
+      }
+    }
+  }
+
+  updateDistribution() {
+    const formData = new FormData();
+    formData.append('distribution', new Blob([JSON.stringify(this.distribution)], { type: 'application/json' }));
+    if (this.logoFile) {
+      formData.append('logo', this.logoFile);
+    }
+    if (this.desktopImageFile) {
+      formData.append('desktopImage', this.desktopImageFile);
+    }
+
+    this.distroSvc.updateDistribution(this.distribution.id, formData).subscribe(() => {
+      this.router.navigate(['/']);
+    });
   }
 }

@@ -1,21 +1,128 @@
-<div class="container mt-5">
-  <h2 class="title fs-2 mb-5">Modifica prodotto</h2>
-<form>
-  <div class="form_group">
-    <label class="sub_title" for="name">Nome</label>
-    <input name="name" placeholder="Inserisci il nome della distro" class="form_style" type="text"
-      [(ngModel)]="distribution.name" />
+<div class="main-container">
+  <div class="container">
+    <div class="form_area p-5">
+      <p class="title">Modifica distribuzione</p>
+      <form (ngSubmit)="updateDistribution()" #distributionForm="ngForm">
+        <div class="form_group">
+          <label class="sub_title" for="name">Nome</label>
+          <input
+            name="name"
+            placeholder="Inserisci un nome"
+            class="form_style"
+            type="text"
+            [(ngModel)]="distribution.name"
+            required
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="currentVersion">Versione corrente</label>
+          <input
+            name="currentVersion"
+            placeholder="Inserisci la versione corrente"
+            class="form_style"
+            type="text"
+            [(ngModel)]="distribution.currentVersion"
+            required
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="releaseDate">Data di rilascio</label>
+          <input
+            name="releaseDate"
+            placeholder="Inserisci la data di rilascio"
+            class="form_style"
+            type="date"
+            [(ngModel)]="distribution.releaseDate"
+            required
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="description">Descrizione</label>
+          <input
+            name="description"
+            placeholder="Inserisci la descrizione"
+            class="form_style"
+            type="text"
+            [(ngModel)]="distribution.description"
+            required
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="officialWebsite">Sito ufficiale</label>
+          <input
+            name="officialWebsite"
+            placeholder="Inserisci il sito ufficiale"
+            class="form_style"
+            type="text"
+            [(ngModel)]="distribution.officialWebsite"
+            required
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="baseDistro">Distro di base</label>
+          <input
+            name="baseDistro"
+            placeholder="Inserisci la distro di base"
+            class="form_style"
+            type="text"
+            [(ngModel)]="distribution.baseDistro"
+            required
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="supportedArchitecture">Architettura supportata</label>
+          <input
+            name="supportedArchitecture"
+            placeholder="Inserisci l'architettura supportata"
+            class="form_style"
+            type="text"
+            [(ngModel)]="distribution.supportedArchitecture"
+            required
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="packageType">Tipo di pacchetto</label>
+          <input
+            name="packageType"
+            placeholder="Inserisci il tipo di pacchetto"
+            class="form_style"
+            type="text"
+            [(ngModel)]="distribution.packageType"
+            required
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="desktopEnvironment">Ambiente desktop</label>
+          <input
+            name="desktopEnvironment"
+            placeholder="Inserisci l'ambiente desktop"
+            class="form_style"
+            type="text"
+            [(ngModel)]="distribution.desktopEnvironment"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="logo">Logo</label>
+          <input
+            name="logo"
+            class="form_style"
+            type="file"
+            (change)="onFileSelected($event, 'logo')"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="desktopImage">URL immagine desktop</label>
+          <input
+            name="desktopImage"
+            class="form_style"
+            type="file"
+            (change)="onFileSelected($event, 'desktopImage')"
+          />
+        </div>
+        <div>
+          <button type="submit" class="btn" [disabled]="!distributionForm.form.valid">Aggiorna ora</button>
+        </div>
+      </form>
+    </div>
   </div>
-  <div class="form_group">
-    <label class="sub_title" for="description">Descrizione</label>
-    <input name="description" placeholder="Inserisci la desrizione" class="form_style" type="text"
-      [(ngModel)]="distribution.description" />
-  </div>
-  <div class="form_group">
-    <label class="sub_title" for="image">Official site</label>
-    <input name="image" placeholder="Inserisci il sito ufficiale" class="form_style" type="text"
-      [(ngModel)]="distribution.officialWebsite" />
-  </div>
-  <button (click)="editDistribution(distribution)" class="btn">Modifica</button>
-</form>
 </div>

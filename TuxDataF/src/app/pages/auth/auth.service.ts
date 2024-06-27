@@ -47,25 +47,29 @@ export class AuthService {
     this.restoreUser(); //come prima cosa controllo se è già attiva una sessione, e la ripristino
   }
 
-  //ng g environments
   registerUrl: string = environment.registerUrl;
   loginUrl: string = environment.loginUrl;
+  userUrl: string = environment.userUrl;
 
-  register(newUser: Partial<iUser>): Observable<AccessData> {
-    return this.http.post<AccessData>(this.registerUrl, newUser);
+  register(formData: FormData): Observable<AccessData> {
+    return this.http.post<AccessData>(this.registerUrl, formData);
   }
 
   login(loginData: iLoginData): Observable<AccessData> {
     return this.http.post<AccessData>(this.loginUrl, loginData)
       .pipe(tap(data => {
-        // Determina se l'utente è un amministratore
-        this.isAdmin = data.user.roles.some(role => role.roleType === 'ADMIN');
-
         this.authSubject.next(data.user); //comunico al subject che l'utente si è loggato
         localStorage.setItem('accessData', JSON.stringify(data));
 
+        // Determina se l'utente è un amministratore
+        this.isAdmin = data.user.roles.some(role => role.roleType === 'admin');
+
         this.autoLogout(data.token);
       }));
+  }
+
+  getCurrentUser(): Observable<iUser | null> {
+    return this.authSubject.asObservable();
   }
 
   logout() {
@@ -104,7 +108,7 @@ export class AuthService {
 
     //se nessun return viene eseguito proseguo
     this.authSubject.next(accessData.user); //invio i dati dell'utente al behaviorsubject
-    this.isAdmin = accessData.user.roles.some(role => role.roleType === 'ADMIN'); // Check if the user is admin
+    this.isAdmin = accessData.user.roles.some(role => role.roleType === 'admin'); // Check if the user is admin
     this.autoLogout(accessData.token); //riavvio il timer per la scadenza della sessione
   }
 
@@ -121,9 +125,5 @@ export class AuthService {
       default:
         return new Error('Errore');
     }
-  }
-
-  getCurrentUser(): Observable<iUser | null> {
-    return this.authSubject.asObservable();
   }
 }

@@ -5,23 +5,20 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root',
+  providedIn: 'root'
 })
 export class DistributionService {
+
   distributionUrl = environment.distroUrl;
 
-  distributionArr: iDistribution[] = [];
-
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getAll(): Observable<iDistribution[]> {
     return this.http.get<iDistribution[]>(this.distributionUrl);
   }
 
-  createDistribution(
-    distribution: Partial<iDistribution>
-  ): Observable<iDistribution> {
-    return this.http.post<iDistribution>(this.distributionUrl, distribution);
+  createDistribution(formData: FormData): Observable<iDistribution> {
+    return this.http.post<iDistribution>(this.distributionUrl, formData);
   }
 
   getDistributionById(id: number): Observable<iDistribution> {
@@ -33,10 +30,7 @@ export class DistributionService {
     return this.http.delete<void>(`${this.distributionUrl}/${id}`);
   }
 
-  editDistribution(distribution: iDistribution): Observable<iDistribution> {
-    return this.http.put<iDistribution>(
-      `${this.distributionUrl}/${distribution.id}`,
-      distribution
-    );
+  updateDistribution(id: number, formData: FormData): Observable<iDistribution> {
+    return this.http.put<iDistribution>(`${this.distributionUrl}/${id}`, formData);
   }
 }
