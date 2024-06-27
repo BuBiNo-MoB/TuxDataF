@@ -5,36 +5,38 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class DistributionService {
+  distributionUrl = environment.distroUrl;
 
+  distributionArr: iDistribution[] = [];
 
-  productUrl = environment.distroUrl
+  constructor(private http: HttpClient) {}
 
-  distributionArr: iDistribution[] = []
-
-  constructor(private http : HttpClient) { }
-
-  getAll(){
-    return this.http.get<iDistribution[]>(this.productUrl)
+  getAll(): Observable<iDistribution[]> {
+    return this.http.get<iDistribution[]>(this.distributionUrl);
   }
 
-  createProduct(productArr:Partial<iDistribution>){
-    return this.http.post<iDistribution>(this.productUrl, productArr)
+  createDistribution(
+    distribution: Partial<iDistribution>
+  ): Observable<iDistribution> {
+    return this.http.post<iDistribution>(this.distributionUrl, distribution);
   }
 
-
-  getProductById(id: number): Observable<iDistribution> {
-    const url = `${this.productUrl}/${id}`;
+  getDistributionById(id: number): Observable<iDistribution> {
+    const url = `${this.distributionUrl}/${id}`;
     return this.http.get<iDistribution>(url);
   }
 
-  deleteProduct(id: number){
-    return this.http.delete(this.productUrl+'/'+id)
+  deleteDistribution(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.distributionUrl}/${id}`);
   }
 
-  editProduct(product: iDistribution){
-          return this.http.patch<iDistribution>(this.productUrl+'/'+product.id, product)
-    }
+  editDistribution(distribution: iDistribution): Observable<iDistribution> {
+    return this.http.put<iDistribution>(
+      `${this.distributionUrl}/${distribution.id}`,
+      distribution
+    );
+  }
 }

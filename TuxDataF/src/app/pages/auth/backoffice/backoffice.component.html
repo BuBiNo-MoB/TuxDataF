@@ -1,0 +1,122 @@
+<div class="main-container">
+  <div class="container">
+    <div class="form_area p-5">
+      <p class="title">Aggiungi un nuovo prodotto!</p>
+      <form>
+        <div class="form_group">
+          <label class="sub_title" for="name">Nome</label>
+          <input
+            name="name"
+            placeholder="Inserisci un nome"
+            class="form_style"
+            type="text"
+            [(ngModel)]="newDistribution.name"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="currentVersion">Versione corrente</label>
+          <input
+            name="currentVersion"
+            placeholder="Inserisci la versione corrente"
+            class="form_style"
+            type="text"
+            [(ngModel)]="newDistribution.currentVersion"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="releaseDate">Data di rilascio</label>
+          <input
+            name="releaseDate"
+            placeholder="Inserisci la data di rilascio"
+            class="form_style"
+            type="date"
+            [(ngModel)]="newDistribution.releaseDate"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="description">Descrizione</label>
+          <input
+            name="description"
+            placeholder="Inserisci la descrizione"
+            class="form_style"
+            type="text"
+            [(ngModel)]="newDistribution.description"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="officialWebsite">Sito ufficiale</label>
+          <input
+            name="officialWebsite"
+            placeholder="Inserisci il sito ufficiale"
+            class="form_style"
+            type="text"
+            [(ngModel)]="newDistribution.officialWebsite"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="baseDistro">Distro di base</label>
+          <input
+            name="baseDistro"
+            placeholder="Inserisci la distro di base"
+            class="form_style"
+            type="text"
+            [(ngModel)]="newDistribution.baseDistro"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="supportedArchitecture">Architettura supportata</label>
+          <input
+            name="supportedArchitecture"
+            placeholder="Inserisci l'architettura supportata"
+            class="form_style"
+            type="text"
+            [(ngModel)]="newDistribution.supportedArchitecture"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="packageType">Tipo di pacchetto</label>
+          <input
+            name="packageType"
+            placeholder="Inserisci il tipo di pacchetto"
+            class="form_style"
+            type="text"
+            [(ngModel)]="newDistribution.packageType"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="desktopEnvironment">Ambiente desktop</label>
+          <input
+            name="desktopEnvironment"
+            placeholder="Inserisci l'ambiente desktop"
+            class="form_style"
+            type="text"
+            [(ngModel)]="newDistribution.desktopEnvironment"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="logoUrl">Logo</label>
+          <input
+            name="logoUrl"
+            placeholder="Inserisci il logo"
+            class="form_style"
+            type="text"
+            [(ngModel)]="newDistribution.logoUrl"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="desktopImageUrl">URL immagine desktop</label>
+          <input
+            name="desktopImageUrl"
+            placeholder="Inserisci l'URL dell'immagine desktop"
+            class="form_style"
+            type="text"
+            [(ngModel)]="newDistribution.desktopImageUrl"
+          />
+        </div>
+        <div>
+          <button (click)="createDistribution()" class="btn">Crea ora</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

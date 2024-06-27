@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <h2 class="title fs-2 mb-5">Modifica prodotto</h2>
+<form>
+  <div class="form_group">
+    <label class="sub_title" for="name">Nome</label>
+    <input name="name" placeholder="Inserisci il nome della distro" class="form_style" type="text"
+      [(ngModel)]="distribution.name" />
+  </div>
+  <div class="form_group">
+    <label class="sub_title" for="description">Descrizione</label>
+    <input name="description" placeholder="Inserisci la desrizione" class="form_style" type="text"
+      [(ngModel)]="distribution.description" />
+  </div>
+  <div class="form_group">
+    <label class="sub_title" for="image">Official site</label>
+    <input name="image" placeholder="Inserisci il sito ufficiale" class="form_style" type="text"
+      [(ngModel)]="distribution.officialWebsite" />
+  </div>
+  <button (click)="editDistribution(distribution)" class="btn">Modifica</button>
+</form>
+</div>
