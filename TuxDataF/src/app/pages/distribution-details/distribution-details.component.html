@@ -16,7 +16,10 @@
             <p class="card-text">Tipo di Pacchetto: {{ distro.packageType }}</p>
             <p class="card-text" *ngIf="distro.desktopEnvironment">Ambiente Desktop: {{ distro.desktopEnvironment }}</p>
             <a [href]="distro.officialWebsite" class="btn btn-primary" target="_blank">Sito Ufficiale</a>
-            <button *ngIf="isAdmin" (click)="deleteDistribution(distro.id)" class="btn btn-danger m-2">Rimuovi</button>
+            <div>
+              <button *ngIf="isAdmin" (click)="deleteDistribution(distro.id)" class="btn btn-danger ml-2">Rimuovi</button>
+              <button *ngIf="isAdmin" [routerLink]="['/distributionDetails/edit', distro.id]" class="btn btn-secondary ml-2">Modifica</button>
+            </div>
           </div>
         </div>
         <div class="mt-3">
