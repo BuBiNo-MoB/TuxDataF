@@ -38,7 +38,6 @@ export class ProfileComponent implements OnInit {
 
     this.userService.updateUser(this.currentUser.id, formData).subscribe(updatedUser => {
       this.currentUser = updatedUser;
-      console.log('Updated User:', this.currentUser); // Verifica che l'avatar sia presente
       this.profileImageFile = null;
     });
   }
