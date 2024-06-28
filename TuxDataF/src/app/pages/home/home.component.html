@@ -10,6 +10,7 @@
             <h5 class="card-title">{{ distro.name }}</h5>
             <p class="card-text">{{ distro.description }}</p>
             <a [href]="distro.officialWebsite" class="btn btn-primary" target="_blank">Official Website</a>
+            <button *ngIf="isAdmin" (click)="deleteDistribution(distro.id)" class="btn btn-danger ml-2">Rimuovi</button>
           </div>
         </div>
         <div class="mt-3">
