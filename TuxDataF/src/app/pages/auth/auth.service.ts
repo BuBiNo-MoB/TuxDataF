@@ -19,6 +19,7 @@ export class AuthService {
   jwtHelper: JwtHelperService = new JwtHelperService(); //ci permette di lavorare facilmente con i jwt
 
   authSubject = new BehaviorSubject<iUser | null>(null); //se nel behavioursubject c'è null significa che l'utente non è loggato, altrimenti conterrà l'oggetto user con tutte le sue info
+  adminSubject = new BehaviorSubject<boolean>(false); // Aggiungi adminSubject
 
   user$ = this.authSubject.asObservable().pipe(
     tap(user => {
@@ -38,7 +39,7 @@ export class AuthService {
   ); //restituisce true se l'utente è loggato, false se non lo è
 
   syncIsLoggedIn: boolean = false;
-  isAdmin: boolean = false;
+  isAdmin$: Observable<boolean> = this.adminSubject.asObservable(); // Aggiungi isAdmin$
 
   constructor(
     private http: HttpClient, //per le chiamate http
@@ -62,8 +63,8 @@ export class AuthService {
         localStorage.setItem('accessData', JSON.stringify(data));
 
         // Determina se l'utente è un amministratore
-        this.isAdmin = data.user.roles.some(role => role.roleType === 'admin');
-
+        const isAdmin = data.user.roles.some(role => role.roleType.toUpperCase() === 'ADMIN');
+        this.adminSubject.next(isAdmin); // Imposta adminSubject
         this.autoLogout(data.token);
       }));
   }
@@ -75,7 +76,7 @@ export class AuthService {
   logout() {
     this.authSubject.next(null); //comunico al subject che l'utente si è sloggato
     localStorage.removeItem('accessData'); //cancello i dati dell'utente
-    this.isAdmin = false; // Reset isAdmin state
+    this.adminSubject.next(false); // Reset adminSubject
     this.router.navigate(['/auth/login']); //mando via l'utente loggato
   }
 
@@ -106,9 +107,9 @@ export class AuthService {
     const accessData: AccessData = JSON.parse(userJson); //se viene eseguita questa riga significa che i dati ci sono, quindi la converto da json ad oggetto per permetterne la manipolazione
     if (this.jwtHelper.isTokenExpired(accessData.token)) return; //ora controllo se il token è scaduto, se lo è fermiamo la funzione
 
-    //se nessun return viene eseguito proseguo
     this.authSubject.next(accessData.user); //invio i dati dell'utente al behaviorsubject
-    this.isAdmin = accessData.user.roles.some(role => role.roleType === 'admin'); // Check if the user is admin
+    const isAdmin = accessData.user.roles.some(role => role.roleType.toUpperCase() === 'ADMIN');
+    this.adminSubject.next(isAdmin); // Imposta adminSubject
     this.autoLogout(accessData.token); //riavvio il timer per la scadenza della sessione
   }
 

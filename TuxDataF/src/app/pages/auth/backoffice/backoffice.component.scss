@@ -15,25 +15,23 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: #033357;
+  background-color: #0f3f4e;
   height: auto;
   width: auto;
-  border: 2px solid #012948;
   border-radius: 20px;
-  box-shadow: 3px 4px 0px 1px #FF0;
+  box-shadow: 3px 4px 0px 1px #00b9ab;
 }
 
 .title {
-  color: #FF0;
+  color: #00b9ab;
   font-weight: 900;
   font-size: 1.5em;
-
 }
 
 .sub_title {
   font-weight: 600;
   margin: 5px 0;
-  color: #FF0;
+  color: #00b9ab;
 }
 
 .form_group {
@@ -45,8 +43,8 @@
 
 .form_style {
   outline: none;
-  border: 2px solid #012948;
-  box-shadow: 3px 4px 0px 1px #FF0;
+  border: 2px solid #0f3f4e;
+  box-shadow: 3px 4px 0px 1px #00b9ab;
   width: 290px;
   padding: 12px 10px;
   border-radius: 4px;
@@ -63,10 +61,10 @@
   margin: 25px 0px;
   width: 290px;
   font-size: 15px;
-  background: #ff0;
+  background: #00b9ab;
   border-radius: 10px;
   font-weight: 800;
-  box-shadow: 3px 3px 0px 0px rgb(199, 199, 23);
+  box-shadow: 3px 3px 0px 0px 0f3f4e(199, 199, 23);
 }
 
 .btn:hover {
@@ -75,7 +73,7 @@
 
 .link {
   font-weight: 800;
-  color: #ff0;
+  color: #00b9ab;
   padding: 5px;
 }
 

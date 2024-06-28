@@ -1,29 +1,29 @@
-import { Component } from '@angular/core';
-import { NgbCollapseModule } from '@ng-bootstrap/ng-bootstrap';
-import { RouterLink } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../pages/auth/auth.service';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.scss',
+  styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent {
-    isMenuCollapsed = true;
-  show: boolean = false;
+export class NavbarComponent implements OnInit {
+  isMenuCollapsed = true;
   isUserLoggedIn: boolean = false;
-  isAdmin: boolean = false
+  isAdmin: boolean = false;
 
   constructor(private authSvc: AuthService) { }
 
   ngOnInit() {
     this.authSvc.isLoggedIn$.subscribe(data => {
       this.isUserLoggedIn = data;
-      this.isAdmin = this.authSvc.isAdmin
-    })
+    });
+
+    this.authSvc.isAdmin$.subscribe(isAdmin => {
+      this.isAdmin = isAdmin;
+    });
   }
 
   logout() {
-    this.authSvc.logout()
+    this.authSvc.logout();
   }
 }
