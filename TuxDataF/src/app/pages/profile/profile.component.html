@@ -6,24 +6,9 @@
           <div class="card-body">
             <img [src]="currentUser.avatar" alt="Profile Image" class="img-fluid mb-3" *ngIf="currentUser.avatar">
             <h3 class="card-title pt-4">{{ currentUser.username }}</h3>
-            <div class="form-group">
-              <label for="firstName">Nome</label>
-              <input [(ngModel)]="currentUser.firstName" class="form-control" placeholder="Nome">
-            </div>
-            <div class="form-group">
-              <label for="lastName">Cognome</label>
-              <input [(ngModel)]="currentUser.lastName" class="form-control" placeholder="Cognome">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input [(ngModel)]="currentUser.email" class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="avatar">Immagine profilo</label>
-              <input type="file" class="form-control" (change)="onFileSelected($event)">
-              <button (click)="removeProfileImage()" class="btn btn-danger mt-2" *ngIf="currentUser.avatar">Rimuovi immagine</button>
-            </div>
-            <button (click)="updateProfile()" class="btn btn-primary mt-3">Salva Modifiche</button>
+            <p class="card-text">{{ currentUser.firstName }} {{ currentUser.lastName }}</p>
+            <p class="card-text">{{ currentUser.email }}</p>
+            <button class="btn btn-primary mt-3" [routerLink]="['/profile/edit']">Modifica Profilo</button>
           </div>
         </div>
       </div>

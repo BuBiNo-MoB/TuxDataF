@@ -1,0 +1,31 @@
+<div id="main" class="container-fluid">
+  <div class="row justify-content-center text-center">
+    <div class="col-lg-4 col-md-6 col-sm-8">
+      <div class="card mt-5 mb-5">
+        <div *ngIf="currentUser">
+          <div class="card-body">
+            <img [src]="currentUser.avatar" alt="Profile Image" class="img-fluid mb-3" *ngIf="currentUser.avatar">
+            <div class="form-group">
+              <label for="firstName">Nome</label>
+              <input [(ngModel)]="currentUser.firstName" class="form-control" placeholder="Nome">
+            </div>
+            <div class="form-group">
+              <label for="lastName">Cognome</label>
+              <input [(ngModel)]="currentUser.lastName" class="form-control" placeholder="Cognome">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input [(ngModel)]="currentUser.email" class="form-control" placeholder="Email">
+            </div>
+            <div class="form-group">
+              <label for="avatar">Immagine profilo</label>
+              <input type="file" class="form-control" (change)="onFileSelected($event)">
+              <button (click)="removeProfileImage()" class="btn btn-danger mt-2" *ngIf="currentUser.avatar">Rimuovi immagine</button>
+            </div>
+            <button (click)="updateProfile()" class="btn btn-primary mt-3">Salva Modifiche</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

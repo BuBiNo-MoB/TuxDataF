@@ -32,4 +32,8 @@ export class UserService {
   removeUserImage(userId: number): Observable<void> {
     return this.http.delete<void>(`${this.apiUrl}/${userId}/avatar`);
   }
+
+  getCurrentUser(): Observable<iUser> {
+    return this.http.get<iUser>(`${this.apiUrl}/me`);
+  }
 }

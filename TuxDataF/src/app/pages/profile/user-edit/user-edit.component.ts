@@ -1,22 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { iUser } from '../../models/user';
-import { UserService } from '../../services/user.service';
+import { AuthService } from '../../auth/auth.service';
+import { iUser } from '../../../models/user';
+import { UserService } from '../../../services/user.service';
 
 @Component({
-  selector: 'app-profile',
-  templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.scss']
+  selector: 'app-user-edit',
+  templateUrl: './user-edit.component.html',
+  styleUrls: ['./user-edit.component.scss']
 })
-export class ProfileComponent implements OnInit {
+export class UserEditComponent implements OnInit {
   currentUser: iUser | null = null;
   profileImageFile: File | null = null;
 
-  constructor(private userService: UserService) { }
+  constructor(private authService: AuthService, private userService: UserService) { }
 
   ngOnInit(): void {
-    this.userService.getCurrentUser().subscribe(user => {
+    this.authService.getCurrentUser().subscribe(user => {
       this.currentUser = user;
-      console.log('Current User:', this.currentUser); // Verifica che l'avatar sia presente
     });
   }
 
@@ -38,7 +38,7 @@ export class ProfileComponent implements OnInit {
 
     this.userService.updateUser(this.currentUser.id, formData).subscribe(updatedUser => {
       this.currentUser = updatedUser;
-      console.log('Updated User:', this.currentUser); // Verifica che l'avatar sia presente
+      // Reset the file input
       this.profileImageFile = null;
     });
   }
