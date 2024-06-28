@@ -1,0 +1,22 @@
+<div class="container mt-5">
+  <div *ngIf="users.length > 0; else noUsers">
+    <div *ngFor="let user of users" class="card mb-3">
+      <div class="card-body">
+        <div class="row">
+          <div class="col-md-3">
+            <img [src]="user.avatar" alt="{{ user.username }} avatar" class="img-fluid">
+          </div>
+          <div class="col-md-9">
+            <h5 class="card-title">{{ user.username }}</h5>
+            <p class="card-text">Nome: {{ user.firstName }} {{ user.lastName }}</p>
+            <p class="card-text">Email: {{ user.email }}</p>
+            <button *ngIf="isAdmin" (click)="deleteUser(user.id)" class="btn btn-danger ml-2">Rimuovi</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noUsers>
+    <p>No users available.</p>
+  </ng-template>
+</div>
