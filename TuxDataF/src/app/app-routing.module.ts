@@ -18,6 +18,13 @@ const routes: Routes = [
       import('./pages/profile/profile.module').then((m) => m.ProfileModule),
   },
   {
+    path: 'distributionDetails/:id',
+    loadChildren: () =>
+      import('./pages/distribution-details/distribution-details.module').then(
+        (m) => m.DistributionDetailsModule
+      ),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/page404/page404.module').then((m) => m.Page404Module),

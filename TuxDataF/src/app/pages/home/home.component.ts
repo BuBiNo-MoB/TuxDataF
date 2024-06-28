@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DistributionService } from '../../services/distribution.service';
 import { iDistribution } from '../../models/distribution';
 import { AuthService } from '../../pages/auth/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
   distributions: iDistribution[] = [];
   isAdmin: boolean = false;
 
-  constructor(private distributionService: DistributionService, private authService: AuthService) {}
+  constructor(private distributionService: DistributionService, private authService: AuthService,  private router: Router) {}
 
   ngOnInit(): void {
     this.fetchDistributions();
@@ -30,6 +31,10 @@ export class HomeComponent implements OnInit {
         console.error('Error fetching distributions', error);
       }
     );
+  }
+
+  viewDetails(id: number): void {
+    this.router.navigate(['/distributionDetails', id]); // Naviga alla pagina dei dettagli della distribuzione
   }
 
   deleteDistribution(id: number): void {
