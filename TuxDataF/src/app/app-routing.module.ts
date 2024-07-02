@@ -32,6 +32,13 @@ const routes: Routes = [
       ),
   },
   {
+    path: 'categories',
+    loadChildren: () =>
+      import('./pages/categories/categories.module').then(
+        (m) => m.CategoriesModule
+      ),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./pages/page404/page404.module').then((m) => m.Page404Module),

@@ -12,39 +12,44 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   distributions: iDistribution[] = [];
   isAdmin: boolean = false;
+  visibleDistributions: iDistribution[] = [];
 
-  constructor(private distributionService: DistributionService, private authService: AuthService,  private router: Router) {}
+  constructor(private distributionService: DistributionService, private authService: AuthService, private router: Router) {}
 
   ngOnInit(): void {
     this.fetchDistributions();
-    this.authService.isAdmin$.subscribe(isAdmin => {
-      this.isAdmin = isAdmin;
+    this.authService.isAdmin$.subscribe({
+      next: isAdmin => {
+        this.isAdmin = isAdmin;
+      }
     });
   }
 
   fetchDistributions(): void {
-    this.distributionService.getAll().subscribe(
-      (data: iDistribution[]) => {
+    this.distributionService.getAll().subscribe({
+      next: (data: iDistribution[]) => {
         this.distributions = data;
+        this.visibleDistributions = this.distributions.slice(-2);
       },
-      (error) => {
+      error: (error) => {
         console.error('Error fetching distributions', error);
       }
-    );
+    });
   }
 
   viewDetails(id: number): void {
-    this.router.navigate(['/distributionDetails', id]); // Naviga alla pagina dei dettagli della distribuzione
+    this.router.navigate(['/distributionDetails', id]);
   }
 
   deleteDistribution(id: number): void {
-    this.distributionService.deleteDistribution(id).subscribe(
-      () => {
+    this.distributionService.deleteDistribution(id).subscribe({
+      next: () => {
         this.distributions = this.distributions.filter(distro => distro.id !== id);
+        this.visibleDistributions = this.distributions.slice(0, 4); // Aggiorna le distribuzioni visibili
       },
-      (error) => {
+      error: (error) => {
         console.error('Error deleting distribution', error);
       }
-    );
+    });
   }
 }

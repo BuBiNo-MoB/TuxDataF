@@ -1,6 +1,7 @@
 <div class="container mt-5">
-  <div *ngIf="distributions.length > 0; else noDistributions">
-    <div *ngFor="let distro of distributions" class="card mb-3">
+  <h1 class="text-center">Home con le ultime due distro aggiunte</h1>
+  <div *ngIf="visibleDistributions.length > 0; else noDistributions">
+    <div *ngFor="let distro of visibleDistributions" class="card mb-3">
       <div class="card-body">
         <div class="row">
           <div class="col-md-3">
