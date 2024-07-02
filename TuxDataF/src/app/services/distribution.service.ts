@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environment';
 import { iDistribution } from '../models/distribution';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -32,5 +32,10 @@ export class DistributionService {
 
   updateDistribution(id: number, formData: FormData): Observable<iDistribution> {
     return this.http.put<iDistribution>(`${this.distributionUrl}/${id}`, formData);
+  }
+
+  getDistributionsByDesktopEnvironment(desktopEnvironment: string): Observable<iDistribution[]> {
+    const params = new HttpParams().set('desktopEnvironment', desktopEnvironment);
+    return this.http.get<iDistribution[]>(`${this.distributionUrl}/searchByDesktopEnvironment`, { params });
   }
 }
