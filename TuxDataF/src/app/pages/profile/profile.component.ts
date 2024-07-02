@@ -16,7 +16,6 @@ export class ProfileComponent implements OnInit {
   ngOnInit(): void {
     this.userService.getCurrentUser().subscribe(user => {
       this.currentUser = user;
-      console.log('Current User:', this.currentUser); // Verifica che l'avatar sia presente
     });
   }
 
