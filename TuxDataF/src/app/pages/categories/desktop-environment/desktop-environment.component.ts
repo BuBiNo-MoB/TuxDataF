@@ -12,16 +12,16 @@ import { Router } from '@angular/router';
 export class DesktopEnvironmentComponent implements OnInit {
   distributions: iDistribution[] = [];
   isAdmin: boolean = false;
-  selectedEnvironment: string = 'Gnome'; // Default desktop environment
+  selectedEnvironment: string = 'GNOME'; // Default desktop environment
   environmentDescription: string = '';
 
   environmentDescriptions: { [key: string]: string } = {
-    'Gnome': 'Gnome is a desktop environment that is composed entirely of free and open-source software, targeting primarily Linux systems.',
+    'GNOME': 'Gnome is a desktop environment that is composed entirely of free and open-source software, targeting primarily Linux systems.',
     'KDE': 'KDE Plasma is a powerful open-source graphical desktop environment for Unix workstations.',
     'XFCE': 'XFCE is a lightweight desktop environment for UNIX-like operating systems.',
     'LXDE': 'LXDE is a free desktop environment with comparatively low resource requirements.',
-    'Cinnamon': 'Cinnamon is a desktop environment which provides advanced innovative features and a traditional user experience.',
-    'Mate': 'MATE is a desktop environment that continues the legacy of GNOME 2.'
+    'CINNAMON': 'CINNAMON is a desktop environment which provides advanced innovative features and a traditional user experience.',
+    'MATE': 'MATE is a desktop environment that continues the legacy of GNOME 2.'
     // Add more desktop environments and their descriptions as needed
   };
 
