@@ -8,17 +8,17 @@
           </div>
           <div class="col-md-9">
             <h5 class="card-title">{{ distro.name }}</h5>
-            <p class="card-text">Versione Corrente: {{ distro.currentVersion }}</p>
-            <p class="card-text">Data di Rilascio: {{ distro.releaseDate }}</p>
-            <p class="card-text">Descrizione: {{ distro.description }}</p>
-            <p class="card-text">Distro di Base: {{ distro.baseDistro }}</p>
-            <p class="card-text">Architettura Supportata: {{ distro.supportedArchitecture }}</p>
-            <p class="card-text">Tipo di Pacchetto: {{ distro.packageType }}</p>
-            <p class="card-text" *ngIf="distro.desktopEnvironment">Ambiente Desktop: {{ distro.desktopEnvironment }}</p>
-            <a [href]="distro.officialWebsite" class="btn btn-primary" target="_blank">Sito Ufficiale</a>
+            <p class="card-text">Current Version: {{ distro.currentVersion }}</p>
+            <p class="card-text">Release Date: {{ distro.releaseDate }}</p>
+            <p class="card-text">Description: {{ distro.description }}</p>
+            <p class="card-text">Base Distro: {{ distro.baseDistro }}</p>
+            <p class="card-text">Supported Architecture: {{ distro.supportedArchitecture }}</p>
+            <p class="card-text">Package Type: {{ distro.packageType }}</p>
+            <p class="card-text" *ngIf="distro.desktopEnvironment">Desktop Environment: {{ distro.desktopEnvironment }}</p>
+            <a [href]="distro.officialWebsite" class="btn btn-primary" target="_blank">Official Site</a>
             <div>
-              <button *ngIf="isAdmin" (click)="deleteDistribution(distro.id)" class="btn btn-danger ml-2">Rimuovi</button>
-              <button *ngIf="isAdmin" [routerLink]="['/distributionDetails/edit', distro.id]" class="btn btn-secondary ml-2">Modifica</button>
+              <button *ngIf="isAdmin" (click)="deleteDistribution(distro.id)" class="btn btn-danger ml-2">Remove</button>
+              <button *ngIf="isAdmin" [routerLink]="['/distributionDetails/edit', distro.id]" class="btn btn-secondary ml-2">Edit</button>
             </div>
           </div>
         </div>

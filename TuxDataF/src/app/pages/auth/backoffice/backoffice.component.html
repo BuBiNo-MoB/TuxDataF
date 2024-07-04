@@ -1,10 +1,10 @@
 <div class="main-container">
   <div class="container">
-    <div class="form_area p-5">
+    <div class="form_area p-4 m-3">
       <p class="title">Aggiungi una nuova distribuzione!</p>
       <form (ngSubmit)="createDistribution()" #distributionForm="ngForm">
         <div class="form_group">
-          <label class="sub_title" for="name">Nome</label>
+          <label class="sub_title" for="name">Name</label>
           <input
             name="name"
             placeholder="Inserisci un nome"
@@ -15,7 +15,7 @@
           />
         </div>
         <div class="form_group">
-          <label class="sub_title" for="currentVersion">Versione corrente</label>
+          <label class="sub_title" for="currentVersion">Current Version</label>
           <input
             name="currentVersion"
             placeholder="Inserisci la versione corrente"
@@ -26,7 +26,7 @@
           />
         </div>
         <div class="form_group">
-          <label class="sub_title" for="releaseDate">Data di rilascio</label>
+          <label class="sub_title" for="releaseDate">Release Date</label>
           <input
             name="releaseDate"
             placeholder="Inserisci la data di rilascio"
@@ -37,7 +37,7 @@
           />
         </div>
         <div class="form_group">
-          <label class="sub_title" for="description">Descrizione</label>
+          <label class="sub_title" for="description">Description</label>
           <input
             name="description"
             placeholder="Inserisci la descrizione"
@@ -48,7 +48,7 @@
           />
         </div>
         <div class="form_group">
-          <label class="sub_title" for="officialWebsite">Sito ufficiale</label>
+          <label class="sub_title" for="officialWebsite">Official Site</label>
           <input
             name="officialWebsite"
             placeholder="Inserisci il sito ufficiale"
@@ -59,7 +59,7 @@
           />
         </div>
         <div class="form_group">
-          <label class="sub_title" for="baseDistro">Distro di base</label>
+          <label class="sub_title" for="baseDistro">Base Distro</label>
           <input
             name="baseDistro"
             placeholder="Inserisci la distro di base"
@@ -70,7 +70,7 @@
           />
         </div>
         <div class="form_group">
-          <label class="sub_title" for="supportedArchitecture">Architettura supportata</label>
+          <label class="sub_title" for="supportedArchitecture">Supported Architecture</label>
           <input
             name="supportedArchitecture"
             placeholder="Inserisci l'architettura supportata"
@@ -81,7 +81,7 @@
           />
         </div>
         <div class="form_group">
-          <label class="sub_title" for="packageType">Tipo di pacchetto</label>
+          <label class="sub_title" for="packageType">Package Type</label>
           <input
             name="packageType"
             placeholder="Inserisci il tipo di pacchetto"
@@ -92,7 +92,7 @@
           />
         </div>
         <div class="form_group">
-          <label class="sub_title" for="desktopEnvironment">Ambiente desktop</label>
+          <label class="sub_title" for="desktopEnvironment">Desktop Environment</label>
           <input
             name="desktopEnvironment"
             placeholder="Inserisci l'ambiente desktop"
@@ -111,7 +111,7 @@
           />
         </div>
         <div class="form_group">
-          <label class="sub_title" for="desktopImage">URL immagine desktop</label>
+          <label class="sub_title" for="desktopImage">Desktop Image</label>
           <input
             name="desktopImage"
             class="form_style"
@@ -120,7 +120,7 @@
           />
         </div>
         <div>
-          <button type="submit" class="btn" [disabled]="!distributionForm.form.valid">Crea ora</button>
+          <button type="submit" class="btn" [disabled]="!distributionForm.form.valid">Create</button>
         </div>
       </form>
     </div>

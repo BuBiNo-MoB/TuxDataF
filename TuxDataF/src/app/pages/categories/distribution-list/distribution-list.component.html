@@ -10,8 +10,8 @@
             <h5 class="card-title">{{ distro.name }}</h5>
             <p class="card-text">{{ distro.description }}</p>
             <a [href]="distro.officialWebsite" class="btn btn-primary" target="_blank">Official Website</a>
-            <button (click)="viewDetails(distro.id)" class="btn btn-info m-2">Dettagli</button>
-            <button *ngIf="isAdmin" (click)="deleteDistribution(distro.id)" class="btn btn-danger ml-2">Rimuovi</button>
+            <button (click)="viewDetails(distro.id)" class="btn btn-info m-2">Details</button>
+            <button *ngIf="isAdmin" (click)="deleteDistribution(distro.id)" class="btn btn-danger ml-2">Remove</button>
           </div>
         </div>
         <div class="mt-3">

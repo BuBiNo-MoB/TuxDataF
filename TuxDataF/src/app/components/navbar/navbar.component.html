@@ -1,10 +1,9 @@
 <header class="p-2 mb-3 border-bottom mainNav">
   <div class="container-fluid">
-    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+    <div class="d-flex flex-wrap align-items-center justify-content-center">
       <a class="navbar-brand brand" routerLink="/">
-        <img class="logo" src="http://res.cloudinary.com/dz2dgihhs/image/upload/v1719086290/bubu_avatar.png" />
+        <img class="logo" src="https://res.cloudinary.com/dz2dgihhs/image/upload/v1719086290/bubu_avatar.png" />
       </a>
-
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li class="nav-item active">
           <a class="nav-link font" routerLink="/">Home</a>
@@ -34,6 +33,7 @@
           <a class="nav-link font" routerLink="/profile/usersList" *ngIf="isAdmin">Users List</a>
         </li>
       </ul>
+
       <form class="d-flex" (ngSubmit)="search()">
         <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search"
           [(ngModel)]="searchQuery" name="searchQuery" />
