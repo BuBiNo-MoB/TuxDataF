@@ -38,7 +38,6 @@ export class UserEditComponent implements OnInit {
 
     this.userService.updateUser(this.currentUser.id, formData).subscribe(updatedUser => {
       this.currentUser = updatedUser;
-      // Reset the file input
       this.profileImageFile = null;
     });
   }
