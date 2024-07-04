@@ -1,54 +1,72 @@
-<nav class="navbar navbar-expand-lg mainNav">
+<header class="p-2 mb-3 border-bottom mainNav">
   <div class="container-fluid">
-    <a class="navbar-brand brand" routerLink="/"><img class="logo" src="http://res.cloudinary.com/dz2dgihhs/image/upload/v1719086290/bubu_avatar.png"></a>
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+      <a class="navbar-brand brand" routerLink="/">
+        <img class="logo" src="http://res.cloudinary.com/dz2dgihhs/image/upload/v1719086290/bubu_avatar.png" />
+      </a>
 
-    <button class="navbar-toggler" type="button" (click)="isMenuCollapsed = !isMenuCollapsed">&#9776;</button>
-
-    <div [ngbCollapse]="isMenuCollapsed" class="collapse navbar-collapse">
-      <ul class="navbar-nav card card-body d-flex justify-content-end">
+      <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li class="nav-item active">
-          <a class="nav-link font" routerLink="/" (click)="isMenuCollapsed = true">Home</a>
+          <a class="nav-link font" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font" routerLink="/auth/login" (click)="isMenuCollapsed = true" *ngIf="!isUserLoggedIn">Login</a>
+          <a class="nav-link font" routerLink="/auth/login" *ngIf="!isUserLoggedIn">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font" routerLink="/auth/register" (click)="isMenuCollapsed = true" *ngIf="!isUserLoggedIn">Register</a>
+          <a class="nav-link font" routerLink="/auth/register" *ngIf="!isUserLoggedIn">Register</a>
         </li>
         <li class="nav-item">
           <div class="row">
             <div class="col">
               <div ngbDropdown class="d-inline-block">
-                <button type="button" class="btn nav-link border-0 font" id="dropdownBasic1" ngbDropdownToggle *ngIf="isUserLoggedIn">
+                <button type="button" class="btn nav-link border-0 font" id="dropdownBasic1" ngbDropdownToggle
+                  *ngIf="isUserLoggedIn">
                   Categories
                 </button>
                 <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropDiv">
-                  <button class="font" routerLink="categories/new-release" ngbDropdownItem>New Release</button>
-                  <button class="font" routerLink="categories/DE" ngbDropdownItem>Desktop Environment</button>
-                  <button class="font" routerLink="categories/distributions-list" ngbDropdownItem>Distributions List</button>
+                  <button class="font" routerLink="categories/new-release" ngbDropdownItem>
+                    New Release
+                  </button>
+                  <button class="font" routerLink="categories/DE" ngbDropdownItem>
+                    Desktop Environment
+                  </button>
+                  <button class="font" routerLink="categories/distributions-list" ngbDropdownItem>
+                    Distributions List
+                  </button>
                 </div>
               </div>
             </div>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link font" routerLink="/profile" (click)="isMenuCollapsed = true" *ngIf="isUserLoggedIn">Profile</a>
-        </li>
         <li class="nav-item active">
-          <a class="nav-link font" routerLink="/about" (click)="isMenuCollapsed = true">About</a>
+          <a class="nav-link font" routerLink="/about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font" routerLink="/auth/backoffice" (click)="isMenuCollapsed = true" *ngIf="isAdmin">Backoffice</a>
+          <a class="nav-link font" routerLink="/auth/backoffice" *ngIf="isAdmin">Backoffice</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font" routerLink="/profile/usersList" (click)="isMenuCollapsed = true" *ngIf="isAdmin">Users List</a>
+          <a class="nav-link font" routerLink="/profile/usersList" *ngIf="isAdmin">Users List</a>
         </li>
       </ul>
       <form class="d-flex" (ngSubmit)="search()">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" [(ngModel)]="searchQuery" name="searchQuery">
-        <button class="btn btn-outline-success" type="submit">Search</button>
+        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search"
+          [(ngModel)]="searchQuery" name="searchQuery" />
       </form>
-      <button (click)="logout()" *ngIf="isUserLoggedIn" class="btn btn-danger">Esci</button>
+
+      <div ngbDropdown class="d-inline-block text-end" *ngIf="isUserLoggedIn">
+        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" ngbDropdownToggle>
+          <img [src]="currentUser?.avatar" alt="User Avatar" width="32" height="32" class="rounded-circle" />
+        </a>
+        <ul ngbDropdownMenu aria-labelledby="dropdownUser1" class="dropdown-menu text-small dropDiv">
+          <li>
+            <a class="dropdown-item font" routerLink="/profile">Profile</a>
+          </li>
+          <li>
+            <hr class="dropdown-divider" />
+          </li>
+          <li><a class="dropdown-item font" (click)="logout()">Sign out</a></li>
+        </ul>
+      </div>
     </div>
   </div>
-</nav>
+</header>

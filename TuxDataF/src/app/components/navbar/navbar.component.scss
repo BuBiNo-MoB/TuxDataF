@@ -1,48 +1,58 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,500;1,100;1,500;&display=swap');
 
-
-.mainNav{
-  background-color: #0f3f4e;
-  height: 5rem;
+.mainNav {
+  background-color: #14213d;
   font-family: "Poppins", sans-serif;
 }
-.brand{
+
+.brand {
   color: white;
   font-weight: bold;
   font-size: 40px;
 }
 
-  .logo{
-    width: 50px;
-    margin-left:25px;
-  }
+.logo {
+  width: 50px;
+  margin-left: 25px;
+}
 
-  @media screen and (max-width: 991px){
-    .logo{
-      display: none;
-    }
-  }
+.navbar-toggler {
+  border: none;
+  background-color: transparent;
+  color: white;
+  font-size: 24px;
+}
 
-  .card-body{
-    background-color:#0f3f4e;
-    border: none
-  }
+.navbar-collapse {
+  flex-basis: auto;
+  flex-grow: 1;
+}
 
-.font{
-  color: #00b9ab;
+.font {
+  color: #fca311;
   font-weight: bold;
 }
-.font:hover{
-  color: #ffffff;
+
+.font:hover {
+  color: #e5e5e5;
   transition: 0.1s;
-  transform:scale(1.02);
+  transform: scale(1.02);
   background-color: transparent;
 }
-.dropDiv{
-  background-color: #0f3f4e;
+
+.dropDiv {
+  background-color: #14213d;
 }
-.collapse{
-  z-index: 1;
+
+@media screen and (max-width: 991px) {
+  .logo {
+    display: none;
+  }
+
+  .navbar-collapse {
+    flex-basis: 100%;
+    flex-grow: 0;
+  }
 }
 
 
