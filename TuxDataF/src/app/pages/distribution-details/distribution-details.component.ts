@@ -47,6 +47,17 @@ export class DistributionDetailsComponent implements OnInit {
     });
   }
 
+  loadDistributionDetailsByKeyword(keyword: string) {
+    this.distributionService.searchDistributions(keyword).subscribe(
+      (products: iDistribution[]) => {
+        this.distributionArr = products;
+      },
+      (error) => {
+        console.error('Error loading distribution details', error);
+      }
+    );
+  }
+
   deleteDistribution(id: number): void {
     this.distributionService.deleteDistribution(id).subscribe({
       next: () => {

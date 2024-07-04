@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../pages/auth/auth.service';
+import { Router } from '@angular/router';
+import { DistributionService } from '../../services/distribution.service';
 
 @Component({
   selector: 'app-navbar',
@@ -10,20 +12,42 @@ export class NavbarComponent implements OnInit {
   isMenuCollapsed = true;
   isUserLoggedIn: boolean = false;
   isAdmin: boolean = false;
+  searchQuery: string = '';
 
-  constructor(private authSvc: AuthService) { }
+  constructor(
+    private authSvc: AuthService,
+    private router: Router,
+    private distributionService: DistributionService
+  ) {}
 
   ngOnInit() {
-    this.authSvc.isLoggedIn$.subscribe(data => {
+    this.authSvc.isLoggedIn$.subscribe((data) => {
       this.isUserLoggedIn = data;
     });
 
-    this.authSvc.isAdmin$.subscribe(isAdmin => {
+    this.authSvc.isAdmin$.subscribe((isAdmin) => {
       this.isAdmin = isAdmin;
     });
   }
 
   logout() {
     this.authSvc.logout();
+  }
+
+  search() {
+    if (this.searchQuery.trim()) {
+      this.distributionService.searchDistributions(this.searchQuery).subscribe({
+        next: (distributions) => {
+          if (distributions.length > 0) {
+            this.router.navigate(['/distributionDetails', distributions[0].id]);
+          } else {
+            console.error('No distributions found');
+          }
+        },
+        error: (error) => {
+          console.error('Error searching distributions', error);
+        }
+      });
+    }
   }
 }

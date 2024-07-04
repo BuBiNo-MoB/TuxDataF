@@ -38,4 +38,8 @@ export class DistributionService {
     const params = new HttpParams().set('desktopEnvironment', desktopEnvironment);
     return this.http.get<iDistribution[]>(`${this.distributionUrl}/searchByDesktopEnvironment`, { params });
   }
+
+  searchDistributions(keyword: string): Observable<iDistribution[]> {
+    return this.http.get<iDistribution[]>(`${this.distributionUrl}/search?keyword=${keyword}`);
+  }
 }
