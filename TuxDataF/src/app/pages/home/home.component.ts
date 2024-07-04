@@ -1,8 +1,10 @@
+import { UserService } from './../../services/user.service';
 import { Component, OnInit } from '@angular/core';
 import { DistributionService } from '../../services/distribution.service';
 import { iDistribution } from '../../models/distribution';
 import { AuthService } from '../../pages/auth/auth.service';
 import { Router } from '@angular/router';
+import { iUser } from '../../models/user';
 
 @Component({
   selector: 'app-home',
@@ -13,14 +15,18 @@ export class HomeComponent implements OnInit {
   distributions: iDistribution[] = [];
   isAdmin: boolean = false;
   visibleDistributions: iDistribution[] = [];
+  isUserLoggedIn: boolean = false;
+  currentUser: iUser | null = null;
 
-  constructor(private distributionService: DistributionService, private authService: AuthService, private router: Router) {}
+  constructor(private distributionService: DistributionService, private authService: AuthService, private router: Router, private userService: UserService) {}
 
-  ngOnInit(): void {
-    this.fetchDistributions();
-    this.authService.isAdmin$.subscribe({
-      next: isAdmin => {
-        this.isAdmin = isAdmin;
+  ngOnInit() {
+    this.authService.isLoggedIn$.subscribe((data) => {
+      this.isUserLoggedIn = data;
+      if (this.isUserLoggedIn) {
+        this.userService.getCurrentUser().subscribe(user => {
+          this.currentUser = user;
+        });
       }
     });
   }

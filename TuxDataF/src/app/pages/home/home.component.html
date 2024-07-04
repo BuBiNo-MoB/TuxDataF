@@ -1,27 +1,20 @@
-<div class="container mt-5">
-  <h1 class="text-center">Home con le ultime due distro aggiunte</h1>
-  <div *ngIf="visibleDistributions.length > 0; else noDistributions">
-    <div *ngFor="let distro of visibleDistributions" class="card mb-3">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-3">
-            <img [src]="distro.logoUrl" alt="{{ distro.name }} logo" class="img-fluid">
+<div class="container col-xxl-8 px-4 py-5">
+  <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-lg-6">
+          <h1 class="display-5 fw-bold text-body-emphasis lh-1 mb-3">Welcome to Tuxdata: Your Ultimate Resource for Linux Distributions</h1>
+          <p class="lead">Explore, compare, and discover the best Linux distributions with Tuxdata. Whether you are a beginner or an expert, here you will find all the information you need to choose the perfect distro for you.
+              <strong>Tuxdata</strong> is regularly updated with the latest news, reviews, and guides to help you navigate the vast world of Linux.
+          </p>
+
+          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+              <a routerLink="/auth/login" class="btn btn-secondary" *ngIf="!isUserLoggedIn">Login</a>
+              <a routerLink="/auth/register" class="btn btn-secondary" *ngIf="!isUserLoggedIn">Register</a>
+              <a routerLink="categories/DE" class="btn btn-primary" *ngIf="isUserLoggedIn">Explore Distributions</a>
           </div>
-          <div class="col-md-9">
-            <h5 class="card-title">{{ distro.name }}</h5>
-            <p class="card-text">{{ distro.description }}</p>
-            <a [href]="distro.officialWebsite" class="btn btn-primary" target="_blank">Official Website</a>
-            <button (click)="viewDetails(distro.id)" class="btn btn-info m-2">Dettagli</button>
-            <button *ngIf="isAdmin" (click)="deleteDistribution(distro.id)" class="btn btn-danger ml-2">Rimuovi</button>
-          </div>
-        </div>
-        <div class="mt-3">
-          <img [src]="distro.desktopImageUrl" alt="{{ distro.name }} desktop" class="img-fluid">
-        </div>
       </div>
-    </div>
+      <div class="col-10 col-lg-6">
+          <img src="http://res.cloudinary.com/dz2dgihhs/image/upload/v1719933040/hdmzmkencvt17ahjxlwi.png" class="d-block mx-lg-auto img-fluid mb-5" alt="Neon Themes" loading="lazy">
+          <img src="http://res.cloudinary.com/dz2dgihhs/image/upload/v1719588234/lhhzexbbg5yoj6yadtx6.jpg" class="d-block mx-lg-auto img-fluid" alt="Fedora Themes" loading="lazy">
+      </div>
   </div>
-  <ng-template #noDistributions>
-    <p>No distributions available.</p>
-  </ng-template>
 </div>
