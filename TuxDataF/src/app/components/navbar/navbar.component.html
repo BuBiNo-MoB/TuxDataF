@@ -16,27 +16,13 @@
           <a class="nav-link font" routerLink="/auth/register" *ngIf="!isUserLoggedIn">Register</a>
         </li>
         <li class="nav-item">
-          <div class="row">
-            <div class="col">
-              <div ngbDropdown class="d-inline-block">
-                <button type="button" class="btn nav-link border-0 font" id="dropdownBasic1" ngbDropdownToggle
-                  *ngIf="isUserLoggedIn">
-                  Categories
-                </button>
-                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" class="dropDiv">
-                  <button class="font" routerLink="categories/new-release" ngbDropdownItem>
-                    New Release
-                  </button>
-                  <button class="font" routerLink="categories/DE" ngbDropdownItem>
-                    Desktop Environment
-                  </button>
-                  <button class="font" routerLink="categories/distributions-list" ngbDropdownItem>
-                    Distributions List
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
+          <a class="nav-link font" routerLink="categories/new-release" *ngIf="isUserLoggedIn">New Releases</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font" routerLink="categories/DE" *ngIf="isUserLoggedIn">Desktop Environment</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font" routerLink="categories/distributions-list" *ngIf="isUserLoggedIn">Distributions List</a>
         </li>
         <li class="nav-item active">
           <a class="nav-link font" routerLink="/about">About</a>
