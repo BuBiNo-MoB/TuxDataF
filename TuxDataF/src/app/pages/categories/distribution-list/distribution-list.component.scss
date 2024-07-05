@@ -1,5 +1,5 @@
 .card {
-  width: 300px;
+  width: 400 px;
   height: auto;
   border-radius: 20px;
   padding: 2px;
@@ -28,4 +28,8 @@
 
 .card-text{
   height: 100px;
+}
+
+@media screen and (max-width:1024) {
+
 }

@@ -15,23 +15,25 @@
     <h3 class="text-center">{{ selectedEnvironment }} Description</h3>
     <p>{{ environmentDescription }}</p>
   </div>
-  <div *ngIf="distributions.length > 0; else noDistributions" class="row">
-    <div *ngFor="let distro of distributions" class="card m mb-3 col-12 col-md-6">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-3">
-            <img [src]="distro.logoUrl" alt="{{ distro.name }} logo" class="img-fluid">
+  <div *ngIf="distributions.length > 0; else noDistributions" class="row justify-content-center">
+    <div *ngFor="let distro of distributions" class="col-xl-4 col-lg-6 col-md-6 col-12">
+      <div class="card mb-5">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <img [src]="distro.logoUrl" alt="{{ distro.name }} logo" class="img-fluid img-logo">
+            </div>
+            <div class="col-12">
+              <h5 class="card-title">{{ distro.name }}</h5>
+              <p class="card-text">{{ distro.description }}</p>
+              <a [href]="distro.officialWebsite" class="btn btn-primary" target="_blank">Official Website</a>
+              <button (click)="viewDetails(distro.id)" class="btn btn-info m-2">Details</button>
+              <button *ngIf="isAdmin" (click)="deleteDistribution(distro.id)" class="btn btn-danger ml-2">Remove</button>
+            </div>
           </div>
-          <div class="col-md-9">
-            <h5 class="card-title">{{ distro.name }}</h5>
-            <p class="card-text">{{ distro.description }}</p>
-            <a [href]="distro.officialWebsite" class="btn btn-primary" target="_blank">Official Website</a>
-            <button (click)="viewDetails(distro.id)" class="btn btn-info m-2">Details</button>
-            <button *ngIf="isAdmin" (click)="deleteDistribution(distro.id)" class="btn btn-danger ml-2">Remove</button>
+          <div class="mt-3">
+            <img [src]="distro.desktopImageUrl" alt="{{ distro.name }} desktop" class="img-fluid img-distro">
           </div>
-        </div>
-        <div class="mt-3">
-          <img [src]="distro.desktopImageUrl" alt="{{ distro.name }} desktop" class="img-fluid">
         </div>
       </div>
     </div>
