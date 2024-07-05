@@ -1,6 +1,6 @@
 <div class="main-container">
   <div class="container">
-    <div class="form_area p-4 m-3">
+    <div class="form_area p-1 m-3">
       <p class="title">Aggiungi una nuova distribuzione!</p>
       <form (ngSubmit)="createDistribution()" #distributionForm="ngForm">
         <div class="form_group">
@@ -114,7 +114,7 @@
           <label class="sub_title" for="desktopImage">Desktop Image</label>
           <input
             name="desktopImage"
-            class="form_style"
+            class="form_style btn"
             type="file"
             (change)="onFileSelected($event, 'desktopImage')"
           />
