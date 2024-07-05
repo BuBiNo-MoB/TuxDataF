@@ -34,7 +34,7 @@
         </li>
       </ul>
 
-      <form class="d-flex" (ngSubmit)="search()">
+      <form class="d-flex" (ngSubmit)="search()" *ngIf="isUserLoggedIn">
         <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search"
           [(ngModel)]="searchQuery" name="searchQuery" />
       </form>

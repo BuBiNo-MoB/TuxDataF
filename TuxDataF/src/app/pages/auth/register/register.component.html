@@ -1,29 +1,67 @@
-<h1>Registrati</h1>
-
-<form (submit)="signUp($event)">
-
-  <input type="text" name="nome"
-  [(ngModel)]="registerData.firstName"
-  class="form-control" placeholder="nome">
-
-  <input type="text" name="cognome"
-  [(ngModel)]="registerData.lastName"
-  class="form-control" placeholder="cognome">
-
-  <input type="email" name="email"
-  [(ngModel)]="registerData.email"
-  class="form-control" placeholder="email">
-
-  <input type="text" name="username"
-  [(ngModel)]="registerData.username"
-  class="form-control" placeholder="username">
-
-  <input type="password" name="password"
-  [(ngModel)]="registerData.password"
-  class="form-control" placeholder="password">
-
-  <input type="file" (change)="onFileSelected($event)" class="form-control">
-
-  <button type="submit" class="btn btn-success">Registrati</button>
-
-</form>
+<div class="main-container">
+  <div class="container">
+    <div class="form_area">
+      <p class="title mt-3">SIGN UP</p>
+      <form>
+        <div class="form_group">
+          <label class="sub_title" for="firstName">Name</label>
+          <input
+            name="firstName"
+            placeholder="Inserisci il tuo nome"
+            class="form_style"
+            type="text"
+            [(ngModel)]="registerData.firstName"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="lastName">Last Name</label>
+          <input
+            name="lastName"
+            placeholder="Inserisci la tua password"
+            class="form_style"
+            type="text"
+            [(ngModel)]="registerData.lastName"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="mail">Mail</label>
+          <input
+          name="mail"
+          placeholder="Inserisci la tua mail"
+          class="form_style"
+          type="email"
+          [(ngModel)]="registerData.email"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="phone">Username</label>
+          <input
+            name="phone"
+            placeholder="Inserisci il tuo indirizzo"
+            class="form_style"
+            type="number"
+            [(ngModel)]="registerData.username"
+          />
+        </div>
+        <div class="form_group">
+          <label class="sub_title" for="password">Password</label>
+          <input
+          name="password"
+            placeholder="Inserisci la tua password"
+            class="form_style"
+            type="password"
+            [(ngModel)]="registerData.password"
+          />
+        </div>
+        <input type="file" (change)="onFileSelected($event)" class="form-control btn">
+        <div>
+          <button type="submit" class="btn btn-success">Registrati</button>
+          <p>
+            Hai già un account?
+            <a class="link" routerLink="/auth/login">Accedi qui</a>
+          </p>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
