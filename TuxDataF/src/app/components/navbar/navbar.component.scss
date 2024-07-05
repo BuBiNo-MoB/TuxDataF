@@ -3,9 +3,6 @@
 .mainNav {
   background-color: #14213d;
   font-family: "Poppins", sans-serif;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
 }
 
 .brand {
@@ -15,8 +12,9 @@
 }
 
 .logo {
-  width: 50px;
+  width: 150px;
   margin-left: 25px;
+  margin-bottom: 5px;
 }
 
 .navbar-toggler {

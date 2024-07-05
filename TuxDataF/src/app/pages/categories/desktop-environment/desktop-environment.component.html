@@ -9,15 +9,14 @@
       <option value="LXDE">LXDE</option>
       <option value="CINNAMON">CINNAMON</option>
       <option value="MATE">MATE</option>
-      <!-- Add more desktop environments as needed -->
     </select>
   </div>
   <div class="mt-3">
     <h3 class="text-center">{{ selectedEnvironment }} Description</h3>
     <p>{{ environmentDescription }}</p>
   </div>
-  <div *ngIf="distributions.length > 0; else noDistributions">
-    <div *ngFor="let distro of distributions" class="card mb-3">
+  <div *ngIf="distributions.length > 0; else noDistributions" class="row">
+    <div *ngFor="let distro of distributions" class="card m mb-3 col-12 col-md-6">
       <div class="card-body">
         <div class="row">
           <div class="col-md-3">
