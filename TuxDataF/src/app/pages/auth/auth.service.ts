@@ -73,6 +73,11 @@ export class AuthService {
     return this.authSubject.asObservable();
   }
 
+  getCurrentUserId(): number {
+    const user = this.authSubject.value;
+    return user ? user.id : 0;
+  }
+
   logout() {
     this.authSubject.next(null); //comunico al subject che l'utente si è sloggato
     localStorage.removeItem('accessData'); //cancello i dati dell'utente

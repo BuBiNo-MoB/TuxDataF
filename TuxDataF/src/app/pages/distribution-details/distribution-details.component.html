@@ -27,6 +27,22 @@
         </div>
       </div>
     </div>
+
+    <!-- Comments Section -->
+    <div class="card mb-3">
+      <div class="card-body">
+        <h5 class="card-title">Comments</h5>
+        <div *ngFor="let comment of comments" class="mb-3">
+          <strong>{{ comment.username }}</strong>
+          <p>{{ comment.text }}</p>
+          <button *ngIf="isAdmin" (click)="deleteComment(comment.id)" class="btn btn-danger btn-sm">Delete</button>
+        </div>
+        <div>
+          <textarea [(ngModel)]="newCommentText" class="form-control" placeholder="Add a comment"></textarea>
+          <button (click)="addComment()" class="btn btn-primary mt-2">Submit</button>
+        </div>
+      </div>
+    </div>
   </div>
   <ng-template #noDistribution>
     <p>No distribution details available.</p>
