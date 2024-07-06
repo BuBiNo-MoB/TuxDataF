@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,500;1,100;1,500;&display=swap');
-
 .footer {
   background-color: #14213d;
   font-family: "Poppins", sans-serif;
 }
 
 .footer-text {
-  color: #f1bd00;
-  font-weight: bold;
+  color: #f8d133;
 }
 
 .footer-text:hover {
@@ -16,27 +13,10 @@
   background-color: transparent;
 }
 
-
-@media screen and (max-width: 991px) {
-  .logo {
-    display: none;
-  }
-
-  .nav-item .nav-link {
-    color: #f1bd00;
-  }
-
-  .nav-link:hover {
-    color: #e5e5e5;
-  }
+.nav-item .nav-link {
+  color: #f8d133;
 }
 
-@media screen and (min-width: 992px) {
-  .nav-link {
-    color: #f1bd00;
-  }
-
-  .nav-link:hover {
-    color: #e5e5e5;
-  }
+.nav-link:hover {
+  color: #e5e5e5;
 }

@@ -1,8 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,500;1,100;1,500;&display=swap');
-
 .mainNav {
   background-color: #14213d;
-  font-family: "Poppins", sans-serif;
 }
 
 .brand {
@@ -17,21 +14,9 @@
   margin-bottom: 5px;
 }
 
-.navbar-toggler {
-  border: none;
-  background-color: transparent;
-  color: white;
-  font-size: 24px;
-}
-
-.navbar-collapse {
-  flex-basis: auto;
-  flex-grow: 1;
-}
-
 .font {
-  color: #f1bd00;
-  font-weight: bold;
+  color: #f8d133;
+
 }
 
 .font:hover {
@@ -45,15 +30,5 @@
   background-color: #14213d;
 }
 
-@media screen and (max-width: 991px) {
-  .logo {
-    display: none;
-  }
-
-  .navbar-collapse {
-    flex-basis: 100%;
-    flex-grow: 0;
-  }
-}
 
 
