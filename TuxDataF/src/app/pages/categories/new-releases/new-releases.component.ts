@@ -12,6 +12,7 @@ import { AuthService } from '../../auth/auth.service';
 export class NewReleasesComponent implements OnInit {
   distributions: iDistribution[] = [];
   isAdmin: boolean = false;
+  isUserLoggedIn: boolean = false;
   visibleDistributions: iDistribution[] = [];
 
   constructor(private distributionService: DistributionService, private authService: AuthService, private router: Router) {}
@@ -22,6 +23,9 @@ export class NewReleasesComponent implements OnInit {
       next: isAdmin => {
         this.isAdmin = isAdmin;
       }
+    });
+    this.authService.isLoggedIn$.subscribe((data) => {
+      this.isUserLoggedIn = data;
     });
   }
 

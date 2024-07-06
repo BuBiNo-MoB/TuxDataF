@@ -4,10 +4,10 @@
       <p class="title">LOGIN</p>
       <form>
         <div class="form_group">
-          <label class="sub_title" for="mail">Mail</label>
+          <label class="sub_title" for="username">Username</label>
           <input
             name="mail"
-            placeholder="Inserisci la tua mail"
+            placeholder="Username"
             class="form_style"
             type="email"
             [(ngModel)]="loginData.username"
@@ -17,17 +17,17 @@
           <label class="sub_title" for="password">Password</label>
           <input
           name="password"
-            placeholder="Inserisci la tua password"
+            placeholder="Password"
             class="form_style"
             type="password"
             [(ngModel)]="loginData.password"
           />
         </div>
         <div>
-          <button (click)="signIn()" class="btn">ACCEDI</button>
+          <button (click)="signIn()" class="btn">Log In</button>
           <p>
-            Non hai un account?
-            <a class="link" routerLink="/auth/register">Registrati qui</a>
+            Don't have an account?
+            <a class="link" routerLink="/auth/register">Sign Up HERE</a>
           </p>
         </div>
       </form>

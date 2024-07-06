@@ -7,7 +7,7 @@
           <label class="sub_title" for="firstName">Name</label>
           <input
             name="firstName"
-            placeholder="Inserisci il tuo nome"
+            placeholder="Name"
             class="form_style"
             type="text"
             [(ngModel)]="registerData.firstName"
@@ -17,7 +17,7 @@
           <label class="sub_title" for="lastName">Last Name</label>
           <input
             name="lastName"
-            placeholder="Inserisci la tua password"
+            placeholder="Last Name"
             class="form_style"
             type="text"
             [(ngModel)]="registerData.lastName"
@@ -27,7 +27,7 @@
           <label class="sub_title" for="mail">Mail</label>
           <input
           name="mail"
-          placeholder="Inserisci la tua mail"
+          placeholder="Mail"
           class="form_style"
           type="email"
           [(ngModel)]="registerData.email"
@@ -37,7 +37,7 @@
           <label class="sub_title" for="phone">Username</label>
           <input
             name="phone"
-            placeholder="Inserisci il tuo indirizzo"
+            placeholder="Username"
             class="form_style"
             type="number"
             [(ngModel)]="registerData.username"
@@ -47,7 +47,7 @@
           <label class="sub_title" for="password">Password</label>
           <input
           name="password"
-            placeholder="Inserisci la tua password"
+            placeholder="Password"
             class="form_style"
             type="password"
             [(ngModel)]="registerData.password"
@@ -55,10 +55,10 @@
         </div>
         <input type="file" (change)="onFileSelected($event)" class="form-control btn">
         <div>
-          <button type="submit" class="btn btn-success">Registrati</button>
+          <button type="submit" class="btn btn-success">Sign Up</button>
           <p>
-            Hai già un account?
-            <a class="link" routerLink="/auth/login">Accedi qui</a>
+            You have an account?
+            <a class="link" routerLink="/auth/login">Sign In</a>
           </p>
         </div>
       </form>

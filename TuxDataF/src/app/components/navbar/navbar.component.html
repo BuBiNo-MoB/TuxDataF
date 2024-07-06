@@ -9,13 +9,7 @@
           <a class="nav-link font" routerLink="/">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font" routerLink="/auth/login" *ngIf="!isUserLoggedIn">Login</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link font" routerLink="/auth/register" *ngIf="!isUserLoggedIn">Register</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link font" routerLink="categories/new-release" *ngIf="isUserLoggedIn">New Releases</a>
+          <a class="nav-link font" routerLink="categories/new-release">New Releases</a>
         </li>
         <li class="nav-item">
           <a class="nav-link font" routerLink="categories/DE" *ngIf="isUserLoggedIn">Desktop Environment</a>
@@ -25,6 +19,12 @@
         </li>
         <li class="nav-item active">
           <a class="nav-link font" routerLink="/about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font" routerLink="/auth/login" *ngIf="!isUserLoggedIn">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link font" routerLink="/auth/register" *ngIf="!isUserLoggedIn">Register</a>
         </li>
         <li class="nav-item">
           <a class="nav-link font" routerLink="/auth/backoffice" *ngIf="isAdmin">Backoffice</a>
@@ -40,7 +40,7 @@
       </form>
 
       <div ngbDropdown class="d-inline-block text-end" *ngIf="isUserLoggedIn">
-        <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" ngbDropdownToggle>
+        <a class="d-block link-body-emphasis text-decoration-none dropdown-toggle" ngbDropdownToggle>
           <img [src]="currentUser?.avatar" alt="User Avatar" width="32" height="32" class="rounded-circle" />
         </a>
         <ul ngbDropdownMenu aria-labelledby="dropdownUser1" class="dropdown-menu text-small dropDiv">

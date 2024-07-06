@@ -4,23 +4,30 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { BackofficeComponent } from './backoffice/backoffice.component';
 import { EditProductComponent } from './edit-product/edit-product.component';
+import { GuestGuard } from './guest.guard';
+import { AuthGuard } from './auth.guard';
+import { AdminGuard } from './admin.guard';
 
 const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    canActivate: [GuestGuard]
   },
   {
     path: 'register',
-    component: RegisterComponent
+    component: RegisterComponent,
+    canActivate: [GuestGuard]
   },
   {
     path: 'backoffice',
-    component: BackofficeComponent
+    component: BackofficeComponent,
+    canActivate: [AdminGuard]
   },
   {
     path: 'edit-product/:id',
-    component: EditProductComponent
+    component: EditProductComponent,
+    canActivate: [AdminGuard]
   }
 ];
 
