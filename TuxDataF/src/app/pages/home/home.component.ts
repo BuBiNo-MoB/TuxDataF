@@ -20,16 +20,7 @@ export class HomeComponent implements OnInit {
 
   constructor(private distributionService: DistributionService, private authService: AuthService, private router: Router, private userService: UserService) {}
 
-  ngOnInit() {
-    this.authService.isLoggedIn$.subscribe((data) => {
-      this.isUserLoggedIn = data;
-      if (this.isUserLoggedIn) {
-        this.userService.getCurrentUser().subscribe(user => {
-          this.currentUser = user;
-        });
-      }
-    });
-  }
+  ngOnInit() {  }
 
   fetchDistributions(): void {
     this.distributionService.getAll().subscribe({

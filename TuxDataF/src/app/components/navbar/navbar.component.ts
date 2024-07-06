@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { DistributionService } from '../../services/distribution.service';
 import { iUser } from '../../models/user';
 import { UserService } from '../../services/user.service';
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -27,14 +28,23 @@ export class NavbarComponent implements OnInit {
     this.authSvc.isLoggedIn$.subscribe((data) => {
       this.isUserLoggedIn = data;
       if (this.isUserLoggedIn) {
-        this.userService.getCurrentUser().subscribe(user => {
-          this.currentUser = user;
-        });
+        this.updateCurrentUser();
       }
     });
 
     this.authSvc.isAdmin$.subscribe((isAdmin) => {
       this.isAdmin = isAdmin;
+    });
+  }
+
+  updateCurrentUser() {
+    this.userService.getCurrentUser().subscribe({
+      next: (user) => {
+        this.currentUser = user;
+      },
+      error: (error) => {
+        console.error('Error fetching current user:', error);
+      },
     });
   }
 

@@ -16,10 +16,10 @@ type AccessData = {
   providedIn: 'root'
 })
 export class AuthService {
-  jwtHelper: JwtHelperService = new JwtHelperService(); //ci permette di lavorare facilmente con i jwt
+  jwtHelper: JwtHelperService = new JwtHelperService();
 
-  authSubject = new BehaviorSubject<iUser | null>(null); //se nel behavioursubject c'è null significa che l'utente non è loggato, altrimenti conterrà l'oggetto user con tutte le sue info
-  adminSubject = new BehaviorSubject<boolean>(false); // Aggiungi adminSubject
+  authSubject = new BehaviorSubject<iUser | null>(null);
+  adminSubject = new BehaviorSubject<boolean>(false);
 
   user$ = this.authSubject.asObservable().pipe(
     tap(user => {
@@ -36,16 +36,16 @@ export class AuthService {
   isLoggedIn$ = this.user$.pipe(
     map(user => !!user),
     tap(user => this.syncIsLoggedIn = user)
-  ); //restituisce true se l'utente è loggato, false se non lo è
+  );
 
   syncIsLoggedIn: boolean = false;
-  isAdmin$: Observable<boolean> = this.adminSubject.asObservable(); // Aggiungi isAdmin$
+  isAdmin$: Observable<boolean> = this.adminSubject.asObservable();
 
   constructor(
-    private http: HttpClient, //per le chiamate http
-    private router: Router //per i redirect
+    private http: HttpClient,
+    private router: Router
   ) {
-    this.restoreUser(); //come prima cosa controllo se è già attiva una sessione, e la ripristino
+    this.restoreUser();
   }
 
   registerUrl: string = environment.registerUrl;
@@ -59,13 +59,12 @@ export class AuthService {
   login(loginData: iLoginData): Observable<AccessData> {
     return this.http.post<AccessData>(this.loginUrl, loginData)
       .pipe(tap(data => {
-        this.authSubject.next(data.user); //comunico al subject che l'utente si è loggato
+        this.authSubject.next(data.user);
         localStorage.setItem('accessData', JSON.stringify(data));
-
-        // Determina se l'utente è un amministratore
         const isAdmin = data.user.roles.some(role => role.roleType.toUpperCase() === 'ADMIN');
-        this.adminSubject.next(isAdmin); // Imposta adminSubject
+        this.adminSubject.next(isAdmin);
         this.autoLogout(data.token);
+        this.updateCurrentUser();
       }));
   }
 
@@ -73,49 +72,51 @@ export class AuthService {
     return this.authSubject.asObservable();
   }
 
-  getCurrentUserId(): number {
-    const user = this.authSubject.value;
-    return user ? user.id : 0;
-  }
-
   logout() {
-    this.authSubject.next(null); //comunico al subject che l'utente si è sloggato
-    localStorage.removeItem('accessData'); //cancello i dati dell'utente
-    this.adminSubject.next(false); // Reset adminSubject
-    this.router.navigate(['/auth/login']); //mando via l'utente loggato
+    this.authSubject.next(null);
+    localStorage.removeItem('accessData');
+    this.adminSubject.next(false);
+    this.router.navigate(['/auth/login']);
   }
 
   getAccessToken(): string {
-    const userJson = localStorage.getItem('accessData'); //recupero io dati di accesso
-    if (!userJson) return ''; //se l'utente non si è mai loggato blocca tutto
+    const userJson = localStorage.getItem('accessData');
+    if (!userJson) return '';
 
-    const accessData: AccessData = JSON.parse(userJson); //se viene eseguita questa riga significa che i dati ci sono, quindi la converto da json ad oggetto per permetterne la manipolazione
-    if (this.jwtHelper.isTokenExpired(accessData.token)) return ''; //ora controllo se il token è scaduto, se lo è fermiamo la funzione
+    const accessData: AccessData = JSON.parse(userJson);
+    if (this.jwtHelper.isTokenExpired(accessData.token)) return '';
 
     return accessData.token;
   }
 
   autoLogout(jwt: string) {
-    const expDate = this.jwtHelper.getTokenExpirationDate(jwt) as Date; //trovo la data di scadenza del token
-    const expMs = expDate.getTime() - new Date().getTime(); //sottraggo i ms della data/ora di oggi da quella nel jwt
+    const expDate = this.jwtHelper.getTokenExpirationDate(jwt) as Date;
+    const expMs = expDate.getTime() - new Date().getTime();
 
-    //avvio un timer, quando sarà passato il numero di ms necessari per la scadenza del token, avverrà il logout
     setTimeout(() => {
       this.logout();
     }, expMs);
   }
 
   restoreUser() {
-    const userJson = localStorage.getItem('accessData'); //recupero io dati di accesso
-    if (!userJson) return; //se l'utente non si è mai loggato blocca tutto
+    const userJson = localStorage.getItem('accessData');
+    if (!userJson) return;
 
-    const accessData: AccessData = JSON.parse(userJson); //se viene eseguita questa riga significa che i dati ci sono, quindi la converto da json ad oggetto per permetterne la manipolazione
-    if (this.jwtHelper.isTokenExpired(accessData.token)) return; //ora controllo se il token è scaduto, se lo è fermiamo la funzione
+    const accessData: AccessData = JSON.parse(userJson);
+    if (this.jwtHelper.isTokenExpired(accessData.token)) return;
 
-    this.authSubject.next(accessData.user); //invio i dati dell'utente al behaviorsubject
+    this.authSubject.next(accessData.user);
     const isAdmin = accessData.user.roles.some(role => role.roleType.toUpperCase() === 'ADMIN');
-    this.adminSubject.next(isAdmin); // Imposta adminSubject
-    this.autoLogout(accessData.token); //riavvio il timer per la scadenza della sessione
+    this.adminSubject.next(isAdmin);
+    this.autoLogout(accessData.token);
+  }
+
+  private updateCurrentUser() {
+    const accessData = localStorage.getItem('accessData');
+    if (accessData) {
+      const parsedData = JSON.parse(accessData);
+      this.authSubject.next(parsedData.user);
+    }
   }
 
   errors(err: any) {
