@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,500;1,100;1,500;&display=swap');
+
+.container {
+  margin-top: 5rem;
+}
+
+.card {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+  padding: 2px;
+  box-shadow: #525252 0 10px 5px -5px;
+  background-image: linear-gradient(144deg, #14213D, #20345e 50%, #a68200);
+  color: #f8d133;
+  margin: 0 auto;
+}
+
+.card-body {
+  padding: 15px;
+}
+
+.img-fluid {
+  width: 200px;
+  height: 120px;
+  border-radius: 50%;
+}
+
+.card-title {
+  margin-top: 10px;
+  font-size: 1.5rem;
+}
+
+.card-text {
+  height: auto;
+  text-overflow: ellipsis;
+}
+
+.btn-danger {
+  background-color: #ff4c4c;
+  border-color: #ff4c4c;
+}
+
+.btn-danger:hover {
+  background-color: #e60000;
+  border-color: #e60000;
+}
+
+@media screen and (max-width: 1024px) {
+  .img-fluid {
+    width: 130px;
+    height:auto
+
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .img-avatar {
+    width: 80px;
+    height: 80px;
+  }
+}

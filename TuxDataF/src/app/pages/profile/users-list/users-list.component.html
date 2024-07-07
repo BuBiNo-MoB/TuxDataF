@@ -1,6 +1,6 @@
 <div class="container mt-5">
-  <div *ngIf="users.length > 0; else noUsers">
-    <div *ngFor="let user of users" class="card mb-3">
+  <div *ngIf="users.length > 0; else noUsers" class="row">
+    <div *ngFor="let user of users" class="card m-3 col">
       <div class="card-body">
         <div class="row">
           <div class="col-md-3">

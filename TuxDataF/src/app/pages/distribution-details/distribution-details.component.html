@@ -1,7 +1,7 @@
 <div class="container mt-5">
   <div *ngIf="distributionArr.length > 0; else noDistribution">
     <div class="row justify-content-center">
-      <div *ngFor="let distro of distributionArr" class="col-xl-4 col-lg-6 col-md-8 col-sm-12 mb-5">
+      <div *ngFor="let distro of distributionArr" class="col-xl-4 col-lg-6 col-md-8 col-sm-12 mb-2">
         <div class="card">
           <div class="card-body text-center">
             <img [src]="distro.logoUrl" alt="{{ distro.name }} logo" class="img-fluid img-logo mb-3">
