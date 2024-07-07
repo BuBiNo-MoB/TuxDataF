@@ -1,0 +1,34 @@
+.container{
+  font-weight: bolder;
+}
+
+.red{
+  color: #c20000;
+}
+
+h1 {
+  font-size: 7rem;
+}
+
+p.lead {
+  font-size: 1.25rem;
+  color: #666;
+}
+
+a {
+  color: #14213d;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.list-unstyled li {
+  margin-bottom: 0.5rem;
+}
+
+.img-fluid {
+  max-width: 350px;
+  height: auto;
+}
