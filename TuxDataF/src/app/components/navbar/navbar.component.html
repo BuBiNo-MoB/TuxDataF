@@ -1,4 +1,4 @@
-<header class="p-2 mb-3 border-bottom mainNav">
+<header class="p-2 border-bottom mainNav">
   <div class="container-fluid">
     <div class="d-flex flex-wrap align-items-center justify-content-center">
       <a class="navbar-brand brand" routerLink="/">
@@ -6,36 +6,36 @@
       </a>
       <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li class="nav-item active">
-          <a class="nav-link font" routerLink="/">Home</a>
+          <a class="nav-link font" routerLink="/"><i class="bi bi-house"></i> Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link font" routerLink="categories/new-release">New Releases</a>
+          <a class="nav-link font" routerLink="categories/new-release"><i class="bi bi-star"></i> New Releases</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link font" routerLink="categories/DE" *ngIf="isUserLoggedIn">Desktop Environment</a>
+        <li class="nav-item" *ngIf="isUserLoggedIn">
+          <a class="nav-link font" routerLink="categories/DE"><i class="bi bi-display"></i> Desktop Environment</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link font" routerLink="categories/distributions-list" *ngIf="isUserLoggedIn">Distributions List</a>
+        <li class="nav-item" *ngIf="isUserLoggedIn">
+          <a class="nav-link font" routerLink="categories/distributions-list"><i class="bi bi-list"></i> Distributions List</a>
         </li>
         <li class="nav-item active">
-          <a class="nav-link font" routerLink="/about">About</a>
+          <a class="nav-link font" routerLink="/about"><i class="bi bi-info-circle"></i> About</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link font" routerLink="/auth/login" *ngIf="!isUserLoggedIn">Login</a>
+        <li class="nav-item" *ngIf="!isUserLoggedIn">
+          <a class="nav-link font" routerLink="/auth/login"><i class="bi bi-box-arrow-in-right"></i> Login</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link font" routerLink="/auth/register" *ngIf="!isUserLoggedIn">Register</a>
+        <li class="nav-item" *ngIf="!isUserLoggedIn">
+          <a class="nav-link font" routerLink="/auth/register"><i class="bi bi-person-plus"></i> Register</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link font" routerLink="/auth/backoffice" *ngIf="isAdmin">Backoffice</a>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link font" routerLink="/auth/backoffice"><i class="bi bi-tools"></i> Backoffice</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link font" routerLink="/profile/usersList" *ngIf="isAdmin">Users List</a>
+        <li class="nav-item" *ngIf="isAdmin">
+          <a class="nav-link font" routerLink="/profile/usersList"><i class="bi bi-people"></i> Users List</a>
         </li>
       </ul>
 
-      <form class="d-flex" (ngSubmit)="search()" *ngIf="isUserLoggedIn">
-        <input class="form-control me-1" type="search" placeholder="Search" aria-label="Search"
+      <form class="d-flex small-search-bar" (ngSubmit)="search()" *ngIf="isUserLoggedIn">
+        <input class="form-control me-1 small-search-input" type="search" placeholder="Search" aria-label="Search"
           [(ngModel)]="searchQuery" name="searchQuery" />
       </form>
 
@@ -45,12 +45,12 @@
         </a>
         <ul ngbDropdownMenu aria-labelledby="dropdownUser1" class="dropdown-menu text-small dropDiv">
           <li>
-            <a class="dropdown-item font" routerLink="/profile">Profile</a>
+            <a class="dropdown-item font" routerLink="/profile"><i class="bi bi-person"></i> Profile</a>
           </li>
           <li>
             <hr class="dropdown-divider" />
           </li>
-          <li><a class="dropdown-item font" (click)="logout()">Sign out</a></li>
+          <li><a class="dropdown-item font" (click)="logout()"><i class="bi bi-box-arrow-right"></i> Sign out</a></li>
         </ul>
       </div>
     </div>
