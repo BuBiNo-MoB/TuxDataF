@@ -1,35 +1,38 @@
-<div id="main" class="container-fluid">
-  <div class="row justify-content-center text-center">
-    <div class="col-lg-4 col-md-6 col-sm-8">
-      <div class="card mt-5 mb-5">
-        <div *ngIf="currentUser">
-          <div class="card-body">
-            <img [src]="currentUser.avatar" alt="Profile Image" class="img-fluid mb-3" *ngIf="currentUser.avatar">
-            <div class="form-group">
-              <label for="userName">Username</label>
-              <input [(ngModel)]="currentUser.username" class="form-control" placeholder="Nome">
-            </div>
-            <div class="form-group">
-              <label for="firstName">Nome</label>
-              <input [(ngModel)]="currentUser.firstName" class="form-control" placeholder="Nome">
-            </div>
-            <div class="form-group">
-              <label for="lastName">Cognome</label>
-              <input [(ngModel)]="currentUser.lastName" class="form-control" placeholder="Cognome">
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input [(ngModel)]="currentUser.email" class="form-control" placeholder="Email">
-            </div>
-            <div class="form-group">
-              <label for="avatar">Immagine profilo</label>
-              <input type="file" class="form-control" (change)="onFileSelected($event)">
-              <button (click)="removeProfileImage()" class="btn btn-danger mt-2" *ngIf="currentUser.avatar">Rimuovi immagine</button>
-            </div>
-            <button (click)="updateProfile()" class="btn btn-primary mt-3">Salva Modifiche</button>
-          </div>
-        </div>
+<div class="main-container">
+  <div class="container">
+    <form class="form" *ngIf="currentUser">
+      <p class="title">Edit Profile</p>
+      <p class="message">Update your profile information.</p>
+      <div class="text-center">
+        <img [src]="currentUser.avatar" alt="Profile Image" class="img-fluid mb-3" *ngIf="currentUser.avatar">
       </div>
-    </div>
+      <label>
+        <input class="input" [(ngModel)]="currentUser.username" name="username" placeholder="" required>
+        <span>Username</span>
+      </label>
+
+      <label>
+        <input class="input" [(ngModel)]="currentUser.firstName" name="firstName" placeholder="" required>
+        <span>First Name</span>
+      </label>
+
+      <label>
+        <input class="input" [(ngModel)]="currentUser.lastName" name="lastName" placeholder="" required>
+        <span>Last Name</span>
+      </label>
+
+      <label>
+        <input class="input" [(ngModel)]="currentUser.email" name="email" placeholder="" required>
+        <span>Email</span>
+      </label>
+
+      <label>
+        <input class="input btn" type="file" (change)="onFileSelected($event)">
+        <span>Profile Image</span>
+      </label>
+
+      <button (click)="removeProfileImage()" class="submit" *ngIf="currentUser.avatar">Remove Image</button>
+      <button (click)="updateProfile()" class="submit">Save Changes</button>
+    </form>
   </div>
 </div>

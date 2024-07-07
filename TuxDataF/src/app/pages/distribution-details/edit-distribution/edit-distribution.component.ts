@@ -38,7 +38,9 @@ export class EditDistributionComponent implements OnInit {
       baseDistro: ['', Validators.required],
       supportedArchitecture: ['', Validators.required],
       packageType: ['', Validators.required],
-      desktopEnvironment: ['']
+      desktopEnvironment: [''],
+      logoUrl: [''],
+      desktopImageUrl: ['']
     });
   }
 
@@ -73,10 +75,14 @@ export class EditDistributionComponent implements OnInit {
 
     if (this.logoFile) {
       formData.append('logo', this.logoFile);
+    } else if (this.distribution.logoUrl) {
+      formData.append('logoUrl', this.distribution.logoUrl);
     }
 
     if (this.desktopImageFile) {
       formData.append('desktopImage', this.desktopImageFile);
+    } else if (this.distribution.desktopImageUrl) {
+      formData.append('desktopImageUrl', this.distribution.desktopImageUrl);
     }
 
     this.distributionService.updateDistribution(this.distributionId, formData).subscribe(

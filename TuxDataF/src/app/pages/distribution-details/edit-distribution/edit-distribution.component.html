@@ -1,51 +1,72 @@
-<div class="container mt-5">
-  <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="name">Nome</label>
-      <input type="text" id="name" formControlName="name" class="form-control" placeholder="Nome">
-    </div>
-    <div class="form-group">
-      <label for="currentVersion">Versione Corrente</label>
-      <input type="text" id="currentVersion" formControlName="currentVersion" class="form-control" placeholder="Versione Corrente">
-    </div>
-    <div class="form-group">
-      <label for="releaseDate">Data di Rilascio</label>
-      <input type="date" id="releaseDate" formControlName="releaseDate" class="form-control" placeholder="Data di Rilascio">
-    </div>
-    <div class="form-group">
-      <label for="description">Descrizione</label>
-      <textarea id="description" formControlName="description" class="form-control" placeholder="Descrizione"></textarea>
-    </div>
-    <div class="form-group">
-      <label for="officialWebsite">Sito Ufficiale</label>
-      <input type="text" id="officialWebsite" formControlName="officialWebsite" class="form-control" placeholder="Sito Ufficiale">
-    </div>
-    <div class="form-group">
-      <label for="baseDistro">Distro di Base</label>
-      <input type="text" id="baseDistro" formControlName="baseDistro" class="form-control" placeholder="Distro di Base">
-    </div>
-    <div class="form-group">
-      <label for="supportedArchitecture">Architettura Supportata</label>
-      <input type="text" id="supportedArchitecture" formControlName="supportedArchitecture" class="form-control" placeholder="Architettura Supportata">
-    </div>
-    <div class="form-group">
-      <label for="packageType">Tipo di Pacchetto</label>
-      <input type="text" id="packageType" formControlName="packageType" class="form-control" placeholder="Tipo di Pacchetto">
-    </div>
-    <div class="form-group">
-      <label for="desktopEnvironment">Ambiente Desktop</label>
-      <input type="text" id="desktopEnvironment" formControlName="desktopEnvironment" class="form-control" placeholder="Ambiente Desktop">
-    </div>
-    <div class="form-group">
-      <label for="logoUrl">Logo</label>
-      <input type="file" id="logoUrl" (change)="onFileSelected($event, 'logo')" class="form-control">
-      <img [src]="distribution.logoUrl" *ngIf="distribution?.logoUrl" alt="Logo" class="img-fluid mt-2">
-    </div>
-    <div class="form-group">
-      <label for="desktopImageUrl">Immagine Desktop</label>
-      <input type="file" id="desktopImageUrl" (change)="onFileSelected($event, 'desktop')" class="form-control">
-      <img [src]="distribution.desktopImageUrl" *ngIf="distribution?.desktopImageUrl" alt="Desktop Image" class="img-fluid mt-2">
-    </div>
-    <button type="submit" class="btn btn-primary">Salva Modifiche</button>
-  </form>
+<div class="main-container">
+  <div class="container">
+    <form class="form" [formGroup]="editForm" (ngSubmit)="onSubmit()">
+      <p class="title">Edit Distribution</p>
+      <p class="message">Update the details of the distribution.</p>
+
+      <div class="flex">
+        <label>
+          <input class="input" type="text" id="name" formControlName="name" placeholder="" required />
+          <span>Name</span>
+        </label>
+
+        <label>
+          <input class="input" type="text" id="currentVersion" formControlName="currentVersion" placeholder="" required />
+          <span>Current Version</span>
+        </label>
+      </div>
+
+      <label>
+        <input class="input" type="date" id="releaseDate" formControlName="releaseDate" placeholder="" required />
+        <span>Release Date</span>
+      </label>
+
+      <label>
+        <input class="input" type="text" id="description" formControlName="description" placeholder="" required />
+        <span>Description</span>
+      </label>
+
+      <label>
+        <input class="input" type="text" id="officialWebsite" formControlName="officialWebsite" placeholder="" required />
+        <span>Official Site</span>
+      </label>
+
+      <div class="flex">
+        <label>
+          <input class="input" type="text" id="baseDistro" formControlName="baseDistro" placeholder="" required />
+          <span>Base Distro</span>
+        </label>
+
+        <label>
+          <input class="input" type="text" id="supportedArchitecture" formControlName="supportedArchitecture" placeholder="" required />
+          <span>Supported Architecture</span>
+        </label>
+      </div>
+      <div class="flex">
+        <label>
+          <input class="input" type="text" id="packageType" formControlName="packageType" placeholder="" required />
+          <span>Package Type</span>
+        </label>
+
+        <label>
+          <input class="input" type="text" id="desktopEnvironment" formControlName="desktopEnvironment" placeholder="" />
+          <span>Desktop Environment</span>
+        </label>
+      </div>
+      <div class="flex">
+        <label>
+          <input class="input btn" type="file" id="logoUrl" (change)="onFileSelected($event, 'logo')" />
+          <span>Logo</span>
+          <img [src]="distribution.logoUrl" *ngIf="distribution?.logoUrl" alt="Logo" class="img-fluid mt-2">
+        </label>
+
+        <label>
+          <input class="input btn" type="file" id="desktopImageUrl" (change)="onFileSelected($event, 'desktop')" />
+          <span>Desktop Image</span>
+          <img [src]="distribution.desktopImageUrl" *ngIf="distribution?.desktopImageUrl" alt="Desktop Image" class="img-fluid mt-2">
+        </label>
+      </div>
+      <button type="submit" class="submit" [disabled]="!editForm.valid">Save Changes</button>
+    </form>
+  </div>
 </div>

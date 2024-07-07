@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,500;1,100;1,500;&display=swap');
+
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.container {
+  border-radius: 25px;
+  max-width: 700px;
+  width: 100%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background-color: #14213D;
+  border-radius: 20px;
+  padding: 20px;
+  color: #f8d133;
+}
+
+.title {
+  font-size: 28px;
+  font-weight: 600;
+  color: #f8d133;
+  text-align: center;
+}
+
+.message {
+  font-size: 14.5px;
+  color: rgba(255, 255, 255, 0.7);
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+}
+
+.form label {
+  position: relative;
+  width: 100%;
+}
+
+.form .input {
+  background-color: #20345e;
+  color: #f8d133;
+  width: 100%;
+  padding: 20px 10px 5px;
+  outline: 0;
+  border: 1px solid #f8d133;
+  border-radius: 10px;
+}
+
+.form .input + span {
+  color: rgba(255, 255, 255, 0.5);
+  position: absolute;
+  left: 10px;
+  top: 0;
+  font-size: 0.9em;
+  transition: 0.3s ease;
+}
+
+.form .input:placeholder-shown + span {
+  top: 20px;
+  font-size: 1em;
+}
+
+.form .input:focus + span,
+.form .input:valid + span {
+  color: #f8d133;
+  top: 5px;
+  font-size: 0.75em;
+}
+
+.input {
+  font-size: medium;
+}
+
+.submit {
+  border: none;
+  outline: none;
+  padding: 10px;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 16px;
+  background-color: #f8d133;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.submit:hover {
+  background-color: #d4b128;
+}
+
+@media (max-width: 768px) {
+  .flex {
+    flex-direction: column;
+    gap: 10px;
+  }
+}
