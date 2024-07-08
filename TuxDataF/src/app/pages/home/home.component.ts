@@ -17,10 +17,34 @@ export class HomeComponent implements OnInit {
   visibleDistributions: iDistribution[] = [];
   isUserLoggedIn: boolean = false;
   currentUser: iUser | null = null;
+  users: iUser[] = [];
+
 
   constructor(private distributionService: DistributionService, private authService: AuthService, private router: Router, private userService: UserService) {}
 
-  ngOnInit() {  }
+  ngOnInit(): void {
+    this.fetchUsers();
+    this.authService.isAdmin$.subscribe((isAdmin) => {
+      this.isAdmin = isAdmin;
+    });
+
+    this.authService.isLoggedIn$.subscribe((data) => {
+      this.isUserLoggedIn = data;
+    });
+  }
+
+
+
+  fetchUsers(): void {
+    this.userService.getUsers().subscribe({
+      next: (data: iUser[]) => {
+        this.users = data;
+      },
+      error: (error) => {
+        console.error('Error fetching users', error);
+      },
+    });
+  }
 
   fetchDistributions(): void {
     this.distributionService.getAll().subscribe({

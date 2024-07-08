@@ -30,6 +30,13 @@
   height: 100px;
 }
 
-@media screen and (max-width:1024) {
+.form-select {
+  background-color: #14213D;
+  color: #f8d133;
+  border: 1px solid #f8d133;
+}
 
+.form-select:focus {
+  border-color: #f8d133;
+  box-shadow: none;
 }

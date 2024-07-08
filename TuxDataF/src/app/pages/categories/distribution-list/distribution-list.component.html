@@ -1,7 +1,16 @@
 <div class="container mt-5 mb-5">
+  <div class="row mb-3">
+    <div class="col-12 text-center">
+      <label for="sortOrder" class="form-label fs-3">Sort by: </label>
+      <select id="sortOrder" class="form-select w-auto d-inline-block" (change)="onSortChange($event)">
+        <option value="name">Name</option>
+        <option value="releaseDate">Release Date</option>
+      </select>
+    </div>
+  </div>
   <div class="row">
     <div *ngIf="distributions.length > 0; else noDistributions" class="d-flex row justify-content-center">
-      <div *ngFor="let distro of distributions" class="col-xl-4 col-lg-4 col-sm-6 col-12">
+      <div *ngFor="let distro of visibleDistributions" class="col-xl-4 col-lg-4 col-sm-6 col-12">
         <div class="card mb-5">
           <div class="card-body">
             <div class="row">
