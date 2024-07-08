@@ -50,7 +50,7 @@ export class DistributionListComponent implements OnInit {
     this.distributionService.deleteDistribution(id).subscribe({
       next: () => {
         this.distributions = this.distributions.filter(distro => distro.id !== id);
-        this.sortDistributions(); // Aggiorna l'ordinamento dopo la cancellazione
+        this.sortDistributions();
       },
       error: (error: any) => {
         console.error('Error deleting distribution', error);

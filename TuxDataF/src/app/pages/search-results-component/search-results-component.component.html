@@ -1,0 +1,33 @@
+<div class="container mt-5 mb-5">
+  <div class="row mb-3">
+    <div class="col-12 text-center yell">
+      <h2 class="text-center">Search Results for "{{ keyword }}"</h2>
+    </div>
+  </div>
+  <div *ngIf="distributions.length > 0; else noResults" class="row justify-content-center">
+    <div *ngFor="let distribution of distributions" class="col-xl-4 col-lg-4 col-sm-6 col-12 mb-4">
+      <div class="card mb-5">
+        <div class="card-body">
+          <div class="row">
+            <div class="col-12">
+              <img [src]="distribution.logoUrl" alt="{{ distribution.name }} logo" class="img-fluid img-logo">
+            </div>
+            <div class="col-12">
+              <h5 class="card-title">{{ distribution.name }}</h5>
+              <p class="card-text">{{ distribution.description }}</p>
+              <a [href]="distribution.officialWebsite" class="btn btn-primary" target="_blank">Official Website</a>
+              <button (click)="viewDetails(distribution.id)" class="btn btn-info m-2">Details</button>
+              <button *ngIf="isAdmin" (click)="deleteDistribution(distribution.id)" class="btn btn-danger ml-2">Remove</button>
+            </div>
+          </div>
+          <div class="mt-3">
+            <img [src]="distribution.desktopImageUrl" alt="{{ distribution.name }} desktop" class="img-fluid img-distro">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ng-template #noResults>
+    <p class="text-center">No results found.</p>
+  </ng-template>
+</div>

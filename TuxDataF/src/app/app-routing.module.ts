@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from './pages/auth/auth.guard';
+import { SearchResultsComponent } from './pages/search-results-component/search-results-component.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,8 @@ const routes: Routes = [
       ),
       canActivate: [AuthGuard]
   },
+  { path: 'search',
+    component: SearchResultsComponent },
   {
     path: 'categories',
     loadChildren: () =>

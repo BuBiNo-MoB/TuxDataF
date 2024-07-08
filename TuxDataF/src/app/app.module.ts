@@ -10,12 +10,14 @@ import { RouterModule } from '@angular/router';
 import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
 import { AuthInterceptor } from './pages/auth/auth.interceptor';
 import { FormsModule } from '@angular/forms';
+import { SearchResultsComponent } from './pages/search-results-component/search-results-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    FooterComponent
+    FooterComponent,
+    SearchResultsComponent
   ],
   imports: [
     BrowserModule,

@@ -53,16 +53,6 @@ export class NavbarComponent implements OnInit {
   }
 
   search() {
-    if (this.searchQuery.trim()) {
-      this.distributionService.searchDistributions(this.searchQuery).subscribe({
-        next: (distributions) => {
-          if (distributions.length > 0) {
-            this.router.navigate(['/distributionDetails', distributions[0].id]);
-          } else {
-            console.error('No distributions found');
-          }
-        },
-      });
-    }
+    this.router.navigate(['/search'], { queryParams: { keyword: this.searchQuery } });
   }
 }
