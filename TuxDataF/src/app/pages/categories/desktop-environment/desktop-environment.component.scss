@@ -4,12 +4,15 @@
   font-family: "Poppins", sans-serif;
 }
 
-
+.text{
+  color: #f8d133;
+}
 
 .form-control {
   background-color: #14213D;
   color: #f8d133;
   border: 1px solid #f8d133;
+  width: 250px;
 }
 
 .form-control:focus {

@@ -1,17 +1,13 @@
 <div class="container mt-5">
-  <div *ngIf="users.length > 0; else noUsers" class="row">
-    <div *ngFor="let user of users" class="card m-3 col">
-      <div class="card-body">
-        <div class="row">
-          <div class="col-md-3">
-            <img [src]="user.avatar" alt="{{ user.username }} avatar" class="img-fluid">
-          </div>
-          <div class="col-md-9">
-            <h5 class="card-title">{{ user.username }}</h5>
-            <p class="card-text">Nome: {{ user.firstName }} {{ user.lastName }}</p>
-            <p class="card-text">Email: {{ user.email }}</p>
-            <button *ngIf="isAdmin" (click)="deleteUser(user.id)" class="btn btn-danger ml-2">Rimuovi</button>
-          </div>
+  <div *ngIf="users.length > 0; else noUsers" class="row justify-content-center">
+    <div *ngFor="let user of users" class="col-xl-4 col-lg-4 col-sm-12 col-12">
+      <div class="card mb-5">
+        <div class="card-body text-center">
+          <img [src]="user.avatar" alt="{{ user.username }} avatar" class="img-fluid mb-3 img-logo">
+          <h5 class="card-title">{{ user.username }}</h5>
+          <p class="card-text">Nome: {{ user.firstName }} {{ user.lastName }}</p>
+          <p class="card-text">Email: {{ user.email }}</p>
+          <button *ngIf="isAdmin" (click)="deleteUser(user.id)" class="btn btn-danger">Remove User</button>
         </div>
       </div>
     </div>
