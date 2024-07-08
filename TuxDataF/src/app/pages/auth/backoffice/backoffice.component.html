@@ -30,36 +30,39 @@
         <span>Official Site</span>
       </label>
 
-      <label>
-        <input class="input" name="baseDistro" placeholder="" type="text" [(ngModel)]="newDistribution.baseDistro" required />
-        <span>Base Distro</span>
-      </label>
+      <div class="flex">
+        <label>
+          <input class="input" name="baseDistro" placeholder="" type="text" [(ngModel)]="newDistribution.baseDistro" required />
+          <span>Base Distro</span>
+        </label>
 
-      <label>
-        <input class="input" name="supportedArchitecture" placeholder="" type="text" [(ngModel)]="newDistribution.supportedArchitecture" required />
-        <span>Supported Architecture</span>
-      </label>
+        <label>
+          <input class="input" name="supportedArchitecture" placeholder="" type="text" [(ngModel)]="newDistribution.supportedArchitecture" required />
+          <span>Supported Architecture</span>
+        </label>
+      </div>
+      <div class="flex">
+        <label>
+          <input class="input" name="packageType" placeholder="" type="text" [(ngModel)]="newDistribution.packageType" required />
+          <span>Package Type</span>
+        </label>
 
-      <label>
-        <input class="input" name="packageType" placeholder="" type="text" [(ngModel)]="newDistribution.packageType" required />
-        <span>Package Type</span>
-      </label>
+        <label>
+          <input class="input" name="desktopEnvironment" placeholder="" type="text" [(ngModel)]="newDistribution.desktopEnvironment" />
+          <span>Desktop Environment</span>
+        </label>
+      </div>
+      <div class="flex">
+        <label>
+          <input class="input btn" name="logo" type="file" (change)="onFileSelected($event, 'logo')" />
+          <span>Logo</span>
+        </label>
 
-      <label>
-        <input class="input" name="desktopEnvironment" placeholder="" type="text" [(ngModel)]="newDistribution.desktopEnvironment" />
-        <span>Desktop Environment</span>
-      </label>
-
-      <label>
-        <input class="input btn" name="logo" type="file" (change)="onFileSelected($event, 'logo')" />
-        <span>Logo</span>
-      </label>
-
-      <label>
-        <input class="input btn" name="desktopImage" type="file" (change)="onFileSelected($event, 'desktopImage')" />
-        <span>Desktop Image</span>
-      </label>
-
+        <label>
+          <input class="input btn" name="desktopImage" type="file" (change)="onFileSelected($event, 'desktopImage')" />
+          <span>Desktop Image</span>
+        </label>
+      </div>
       <button type="submit" class="submit" [disabled]="!distributionForm.form.valid">Create</button>
     </form>
   </div>
