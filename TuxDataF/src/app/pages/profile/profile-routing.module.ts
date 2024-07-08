@@ -11,7 +11,7 @@ const routes: Routes = [
   { path: 'usersList', component: UsersListComponent,
     canActivate: [AdminGuard]},
   { path: 'edit', component: UserEditComponent,
-    canActivate: [AuthGuard] }
+    canActivate: [AuthGuard, AdminGuard]}
 ];
 
 @NgModule({
