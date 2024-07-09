@@ -4,7 +4,7 @@
 }
 
 .card {
-  width: auto;
+  width: 100%;
   border-radius: 10px;
   padding: 30px;
   box-shadow: #525252 0 5px 15px -5px;
@@ -18,12 +18,13 @@
 }
 
 .img-logo {
-  width: 50px;
-  height: 50px;
+  width: 70px;
+  height: 70px;
 }
 
 .img-distro {
-  width: auto;
+  width: 100%;
+  height: auto;
 }
 
 .card-text {
@@ -60,3 +61,29 @@ textarea.form-control:focus {
 }
 
 
+
+.btn-primary:hover {
+  background-color: #14213d;
+  border-color: #14213d;
+}
+
+.btn-danger {
+  background-color: #ff4c4c;
+  border-color: #ff4c4c;
+}
+
+.btn-danger:hover {
+  background-color: #e60000;
+  border-color: #e60000;
+}
+
+.btn-warning {
+  background-color: #f8d133;
+  border-color: #f8d133;
+  color: #14213D;
+}
+
+.btn-warning:hover {
+  background-color: #e6c200;
+  border-color: #e6c200;
+}

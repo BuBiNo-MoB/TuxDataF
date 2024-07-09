@@ -1,18 +1,18 @@
 <div class="container mt-5">
   <div *ngIf="distributionArr.length > 0; else noDistribution">
     <div class="row justify-content-center">
-      <div *ngFor="let distro of distributionArr" class="col-xl-4 col-lg-6 col-md-8 col-sm-12 mb-2">
+      <div *ngFor="let distro of distributionArr" class="col-xl-6 col-lg-8 col-md-10 col-sm-12 mb-4">
         <div class="card">
           <div class="card-body text-center">
             <img [src]="distro.logoUrl" alt="{{ distro.name }} logo" class="img-fluid img-logo mb-3">
             <h5 class="card-title">{{ distro.name }}</h5>
-            <p class="card-text">Current Version: {{ distro.currentVersion }}</p>
-            <p class="card-text">Release Date: {{ distro.releaseDate }}</p>
-            <p class="card-text">Description: {{ distro.description }}</p>
-            <p class="card-text">Base Distro: {{ distro.baseDistro }}</p>
-            <p class="card-text">Supported Architecture: {{ distro.supportedArchitecture }}</p>
-            <p class="card-text">Package Type: {{ distro.packageType }}</p>
-            <p class="card-text" *ngIf="distro.desktopEnvironment">Desktop Environment: {{ distro.desktopEnvironment }}</p>
+            <p class="card-text">Current Version: <strong>{{ distro.currentVersion }}</strong></p>
+            <p class="card-text">Release Date: <strong>{{ distro.releaseDate }}</strong></p>
+            <p class="card-text">{{ distro.description }}</p>
+            <p class="card-text">Base Distro: <strong>{{ distro.baseDistro }}</strong></p>
+            <p class="card-text">Supported Architecture: <strong>{{ distro.supportedArchitecture }}</strong></p>
+            <p class="card-text">Package Type: <strong>{{ distro.packageType }}</strong></p>
+            <p class="card-text" *ngIf="distro.desktopEnvironment">Desktop Environment: <strong>{{ distro.desktopEnvironment }}</strong></p>
             <div class="mt-2">
               <a [href]="distro.officialWebsite" class="btn btn-primary" target="_blank">Official Site</a>
               <button *ngIf="isAdmin" (click)="deleteDistribution(distro.id)" class="btn btn-danger mx-2">Remove</button>
@@ -28,7 +28,7 @@
 
     <!-- Comments Section -->
     <div class="row justify-content-center">
-      <div class="col-xl-4 col-lg-6 col-md-8 col-sm-12 mb-5">
+      <div class="col-xl-6 col-lg-8 col-md-10 col-sm-12 mb-5">
         <div class="card">
           <div class="card-body">
             <h5 class="card-title text-center">Comments</h5>
