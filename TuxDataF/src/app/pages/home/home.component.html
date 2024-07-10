@@ -1,9 +1,9 @@
 <div class="container col-xxl-8 text">
-  <div class="container my-5">
-    <h1 class="fw-bold lh-1 mb-3 text-center">Welcome to Tuxdata</h1>
+  <div class="container">
+    <h1 class="my-5 fw-bold lh-1 mb-3 text-center">Welcome to Tuxdata</h1>
     <h2 class="fw-bold lh-1 mb-3 text-center">Your Ultimate Resource for Linux Distributions</h2>
 
-    <ngb-carousel class="mb-5 settCar d-flex align-items-center justify-content-center" #carousel [interval]="2500"
+    <ngb-carousel class="settCar d-flex align-items-center justify-content-center" #carousel [interval]="2500"
       [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
       <ng-template ngFor let-distribution [ngForOf]="distributions">
         <ng-template ngbSlide>
