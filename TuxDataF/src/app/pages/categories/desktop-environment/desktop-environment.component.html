@@ -1,8 +1,8 @@
 <div class="container mt-5 text">
-  <h1 class="text-center">Distributions by Desktop Environment</h1>
+  <h1 class="text-center textbold">Distributions by Desktop Environment</h1>
   <div class="col-12 text-center mt-4">
     <div class="form-group d-inline-block">
-      <label for="desktopEnvironment">Select Desktop Environment:</label>
+      <label for="desktopEnvironment textbold">Select Desktop Environment:</label>
       <select id="desktopEnvironment" class="form-control" (change)="onEnvironmentChange($event)">
         <option value="GNOME">GNOME</option>
         <option value="KDE">KDE</option>
@@ -14,8 +14,8 @@
     </div>
   </div>
   <div class="mt-3">
-    <h2 class="text-center">{{ selectedEnvironment }}</h2>
-    <p class="text-center pb-2">{{ environmentDescription }}</p>
+    <h2 class="text-center textbold">{{ selectedEnvironment }}</h2>
+    <p class="text-center pb-2 textbold fs-5">{{ environmentDescription }}</p>
   </div>
   <div *ngIf="distributions.length > 0; else noDistributions" class="row justify-content-center">
     <div *ngFor="let distro of distributions" class="col-xl-4 col-lg-6 col-md-6 col-12">

@@ -76,7 +76,7 @@ export class AuthService {
     this.authSubject.next(null);
     localStorage.removeItem('accessData');
     this.adminSubject.next(false);
-    this.router.navigate(['/auth/login']);
+    this.router.navigate(['']);
   }
 
   getAccessToken(): string {

@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     this.fetchUsers();
-    this.fetchDistributions(); // Call the fetchDistributions method to populate the distributions
+    this.fetchDistributions();
     this.authService.isAdmin$.subscribe((isAdmin) => {
       this.isAdmin = isAdmin;
     });
