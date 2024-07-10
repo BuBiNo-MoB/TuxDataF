@@ -1,7 +1,24 @@
 <div class="container col-xxl-8 text">
+  <div class="container my-5">
+    <h1 class="fw-bold lh-1 mb-3 text-center">Welcome to Tuxdata</h1>
+    <h2 class="fw-bold lh-1 mb-3 text-center">Your Ultimate Resource for Linux Distributions</h2>
+
+    <ngb-carousel class="mb-5 settCar d-flex align-items-center justify-content-center" #carousel [interval]="2500"
+      [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
+      <ng-template ngFor let-distribution [ngForOf]="distributions">
+        <ng-template ngbSlide>
+          <div class="carousel-caption bottone border border-warning rounded-3">
+            <h3>{{distribution.name}}</h3>
+          </div>
+          <div class="picsum-img-wrapper text-center divSize btnspecial">
+            <img class="imgSize" [src]="distribution.logoUrl" />
+          </div>
+        </ng-template>
+      </ng-template>
+    </ngb-carousel>
+  </div>
   <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
       <div class="col-lg-6">
-          <h1 class="fw-bold lh-1 mb-3">Welcome to Tuxdata: Your Ultimate Resource for Linux Distributions</h1>
           <p class="lead">Explore, compare, and discover the best Linux distributions with Tuxdata. Whether you are a beginner or an expert, here you will find all the information you need to choose the perfect distro for you.
               <strong>Tuxdata</strong> is regularly updated with the latest news, reviews, and guides to help you navigate the vast world of Linux.
           </p>
@@ -14,7 +31,6 @@
       </div>
       <div class="col-10 col-lg-6">
           <img src="http://res.cloudinary.com/dz2dgihhs/image/upload/v1719933040/hdmzmkencvt17ahjxlwi.png" class="d-block mx-lg-auto img-fluid mb-5" alt="Neon Themes" loading="lazy">
-          <img src="http://res.cloudinary.com/dz2dgihhs/image/upload/v1719588234/lhhzexbbg5yoj6yadtx6.jpg" class="d-block mx-lg-auto img-fluid" alt="Fedora Themes" loading="lazy">
       </div>
   </div>
 </div>

@@ -1,6 +1,5 @@
 .footer {
   background-color: #14213d;
-  font-family: 'Poppins', sans-serif;
   color: #f8d133;
   margin-top: auto;
   width: 100%;
@@ -22,4 +21,10 @@
 
 .nav-link:hover {
   color: #e5e5e5;
+}
+
+.font:hover {
+  transition: 0.1s;
+  transform: scale(1.02);
+  background-color: transparent;
 }

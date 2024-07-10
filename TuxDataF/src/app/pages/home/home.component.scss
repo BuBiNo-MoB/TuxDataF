@@ -16,3 +16,48 @@
   color: #f8d133;
   font-style: bold;
 }
+
+
+.settCar{
+  height: 315px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.margin{
+  margin-top: 200px;
+}
+
+.divSize{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+  position: sticky;
+  .imgSize{
+    max-width: 115px;
+    max-height: 115px;
+    aspect-ratio: auto;
+    position: absolute;
+  }
+}
+
+.btnspecial{
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+
+.bottone{
+  background-color: #14213D;
+}
+
+.textFont{
+  font-family: JetBrains Mono, monospace;
+}
+
+.spanSett{
+  color: #d9a002;
+}
