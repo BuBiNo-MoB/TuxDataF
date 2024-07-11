@@ -1,21 +1,22 @@
-# 🌟TuxData
-TuxData is a comprehensive web application designed to help users explore, compare, and discover various Linux distributions. The application provides detailed and up-to-date informations, and insightful reviews to assist users in finding the perfect Linux distro for their needs. 
+# TuxData
+TuxData is a comprehensive web application designed to help users explore and discover various Linux distributions. The application provides detailed and up-to-date informations, and insightful reviews to assist users in finding the perfect Linux distro for their needs. 
+
 #### It leverages Angular for frontend development and integrates with a Spring Boot backend and PostgreSQL for data persistence.
 
-## 📄 Features
-User authentication and authorization
-CRUD operations for Linux distributions
-User comments on Linux distributions
-Integration with PostgreSQL
-Responsive design
-RESTful API endpoints
+## 🌟 Features
+- User authentication and authorization
+- CRUD operations for Linux distributions
+- User comments on Linux distributions
+- Integration with PostgreSQL
+- Responsive design
+- RESTful API endpoints
 
 ## ⌛ Prerequisites
-Node.js and npm
-Angular CLI
-Java 17 or higher (for backend)
-Maven 3.6.0 or higher (for backend)
-PostgreSQL
+- Node.js and npm
+- Angular CLI
+- Java 17 or higher (for backend)
+- Maven 3.6.0 or higher (for backend)
+- PostgreSQL
 
 
 ## 📄 Clone the Repository
@@ -26,15 +27,21 @@ For the Back-end:
 - git clone https://github.com/BuBiNo-MoB/TuxDataB
 
 
-## 📦 Install Dependencies
+## 🛠️ Install Dependencies
 To install the necessary dependencies for the Angular frontend, run:
 
+```py
 npm install
+ng s
+```
 
-For the backend, navigate to the backend directory and use Maven to install dependencies
+For the backend run:
+```py
+mvn clean install
+mvn spring-boot:run
+```
 
-
-## ℹ️ Configure PostgreSQL
+## 📦 Configure PostgreSQL
 Create a database named tuxdatabase and configure your application.properties file in the backend with your PostgreSQL credentials.
 
 ```py
