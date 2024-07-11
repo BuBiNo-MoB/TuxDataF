@@ -25,10 +25,9 @@ git clone https://github.com/BuBiNo-MoB/TuxDataFrontEnd
 ## 📦 Install Dependencies
 To install the necessary dependencies for the Angular frontend, run:
 
-bash
-Copia codice
 npm install
-For the backend, navigate to the backend directory and use Maven to install dependencies:
+
+For the backend, navigate to the backend directory and use Maven to install dependencies
 
 
 ## ℹ️ Configure PostgreSQL
