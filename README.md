@@ -18,10 +18,15 @@ PostgreSQL
 
 
 ## 📄 Clone the Repository
+For the Front-end:
+```py
+git clone https://github.com/BuBiNo-MoB/TuxDataF
+```
 
-git clone https://github.com/BuBiNo-MoB/TuxDataFrontEnd
-
-
+For the Back-end:
+```py
+https://github.com/BuBiNo-MoB/TuxDataB
+```
 ## 📦 Install Dependencies
 To install the necessary dependencies for the Angular frontend, run:
 
