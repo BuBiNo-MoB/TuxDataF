@@ -1,5 +1,6 @@
 # 🌟TuxData
-TuxData is a comprehensive web application designed to help users explore, compare, and discover various Linux distributions. The application provides detailed information, up-to-date news, and insightful reviews to assist users in finding the perfect Linux distro for their needs. It leverages Angular for frontend development and integrates with a Spring Boot backend and PostgreSQL for data persistence.
+TuxData is a comprehensive web application designed to help users explore, compare, and discover various Linux distributions. The application provides detailed and up-to-date informations, and insightful reviews to assist users in finding the perfect Linux distro for their needs. 
+#### It leverages Angular for frontend development and integrates with a Spring Boot backend and PostgreSQL for data persistence.
 
 ## 📄 Features
 User authentication and authorization
@@ -19,14 +20,12 @@ PostgreSQL
 
 ## 📄 Clone the Repository
 For the Front-end:
-```py
-git clone https://github.com/BuBiNo-MoB/TuxDataF
-```
+- git clone https://github.com/BuBiNo-MoB/TuxDataF
 
 For the Back-end:
-```py
-https://github.com/BuBiNo-MoB/TuxDataB
-```
+- git clone https://github.com/BuBiNo-MoB/TuxDataB
+
+
 ## 📦 Install Dependencies
 To install the necessary dependencies for the Angular frontend, run:
 
