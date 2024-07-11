@@ -41,20 +41,6 @@ spring.jpa.hibernate.ddl-auto=update
 ```
 
 
-## 📦 Main Components
-HeaderComponent: Manages the top navigation bar.
-FooterComponent: Manages the footer content.
-HomeComponent: Displays the homepage with a carousel of distributions and a welcome message.
-ProfileComponent: Displays user profile information and allows editing.
-ResultsPageComponent: Displays search results.
-DistributionListComponent: Lists all distributions with sorting options.
-EditDistributionComponent: Admin interface for editing distribution details.
-Services
-AuthService: Manages user authentication and authorization.
-DistributionService: Handles CRUD operations for distributions.
-UserService: Manages user data and operations.
-
-
 ## 🚀 Contributing
 Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
 
