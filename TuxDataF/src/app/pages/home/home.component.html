@@ -3,7 +3,7 @@
     <h1 class="my-5 fw-bold lh-1 mb-3 text-center">Welcome to Tuxdata</h1>
     <h2 class="fw-bold lh-1 mb-3 text-center">Your Ultimate Resource for Linux Distributions</h2>
 
-    <ngb-carousel class="settCar d-flex align-items-center justify-content-center" #carousel [interval]="2500"
+    <ngb-carousel class="settCar d-flex align-items-center justify-content-center" #carousel [interval]="2000"
       [pauseOnHover]="pauseOnHover" [pauseOnFocus]="pauseOnFocus" (slide)="onSlide($event)">
       <ng-template ngFor let-distribution [ngForOf]="distributions">
         <ng-template ngbSlide>
@@ -23,7 +23,7 @@
               <strong>Tuxdata</strong> is regularly updated with the latest news, reviews, and guides to help you navigate the vast world of Linux.
           </p>
 
-          <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <div class="d-grid gap-2 d-md-flex justify-content-md-center">
               <a routerLink="/auth/login" class="btn btn-primary" *ngIf="!isUserLoggedIn">Login</a>
               <a routerLink="/auth/register" class="btn btn-warning" *ngIf="!isUserLoggedIn">Register</a>
               <a routerLink="categories/DE" class="btn btn-primary" *ngIf="isUserLoggedIn">Explore Distributions</a>
