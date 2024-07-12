@@ -42,4 +42,12 @@ export class DistributionService {
   searchDistributions(keyword: string): Observable<iDistribution[]> {
     return this.http.get<iDistribution[]>(`${this.distributionUrl}/search?keyword=${keyword}`);
   }
+
+  addLike(id: number): Observable<void> {
+    return this.http.post<void>(`${this.distributionUrl}/${id}/like`, {});
+  }
+
+  removeLike(id: number): Observable<void> {
+    return this.http.post<void>(`${this.distributionUrl}/${id}/unlike`, {});
+  }
 }

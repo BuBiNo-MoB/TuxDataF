@@ -2,7 +2,7 @@
   <div class="container">
     <div class="form_area">
       <p class="title mt-3">Register</p>
-      <form>
+      <form (ngSubmit)="signUp($event)">
         <div class="form_group">
           <label class="sub_title" for="firstName">Name</label>
           <input
@@ -11,6 +11,7 @@
             class="form_style"
             type="text"
             [(ngModel)]="registerData.firstName"
+            required
           />
         </div>
         <div class="form_group">
@@ -21,36 +22,40 @@
             class="form_style"
             type="text"
             [(ngModel)]="registerData.lastName"
+            required
           />
         </div>
         <div class="form_group">
-          <label class="sub_title" for="mail">Mail</label>
+          <label class="sub_title" for="email">Mail</label>
           <input
-          name="mail"
-          placeholder="Mail"
-          class="form_style"
-          type="email"
-          [(ngModel)]="registerData.email"
+            name="email"
+            placeholder="Mail"
+            class="form_style"
+            type="email"
+            [(ngModel)]="registerData.email"
+            required
           />
         </div>
         <div class="form_group">
-          <label class="sub_title" for="phone">Username</label>
+          <label class="sub_title" for="username">Username</label>
           <input
-            name="phone"
+            name="username"
             placeholder="Username"
             class="form_style"
-            type="number"
+            type="text"
             [(ngModel)]="registerData.username"
+            required
           />
         </div>
         <div class="form_group">
           <label class="sub_title" for="password">Password</label>
           <input
-          name="password"
+            name="password"
             placeholder="Password"
             class="form_style"
             type="password"
             [(ngModel)]="registerData.password"
+            required
           />
         </div>
         <input type="file" (change)="onFileSelected($event)" class="form-control btn">

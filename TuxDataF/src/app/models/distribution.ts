@@ -11,4 +11,6 @@ export interface iDistribution {
   desktopEnvironment?: string
   logoUrl: string
   desktopImageUrl: string
+  likes: number;
+  isLiked: boolean;
 }
