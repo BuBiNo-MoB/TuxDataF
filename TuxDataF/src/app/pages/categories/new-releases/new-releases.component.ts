@@ -56,4 +56,28 @@ export class NewReleasesComponent implements OnInit {
       }
     });
   }
+
+  toggleLike(distro: iDistribution): void {
+    if (distro.isLiked) {
+      this.distributionService.removeLike(distro.id).subscribe({
+        next: () => {
+          distro.isLiked = false;
+          distro.likes--;
+        },
+        error: (error: any) => {
+          console.error('Error removing like', error);
+        }
+      });
+    } else {
+      this.distributionService.addLike(distro.id).subscribe({
+        next: () => {
+          distro.isLiked = true;
+          distro.likes++;
+        },
+        error: (error: any) => {
+          console.error('Error adding like', error);
+        }
+      });
+    }
+  }
 }
