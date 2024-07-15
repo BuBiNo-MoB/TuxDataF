@@ -32,8 +32,9 @@ export class NewReleasesComponent implements OnInit {
   fetchDistributions(): void {
     this.distributionService.getAll().subscribe({
       next: (data: iDistribution[]) => {
-        this.distributions = data;
-        this.visibleDistributions = this.distributions.slice(-2);
+        this.distributions = data.sort((a, b) =>
+        new Date(b.releaseDate).getTime() - new Date(a.releaseDate).getTime());
+        this.visibleDistributions = this.distributions.slice(0, 2);
       },
       error: (error) => {
         console.error('Error fetching distributions', error);
