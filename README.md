@@ -57,5 +57,5 @@ Contributions are welcome! Please fork the repository and submit a pull request 
 
 ## 🏆 Contact
 For any inquiries or questions, please contact:
-Email : emanuel.incarnato@gmail.com
-Linkedin : https://www.linkedin.com/in/emanuel-incarnato-0ab679296/
+- Email : emanuel.incarnato@gmail.com
+- Linkedin : https://www.linkedin.com/in/emanuel-incarnato-0ab679296/
