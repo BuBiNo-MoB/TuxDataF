@@ -56,4 +56,6 @@ spring.jpa.hibernate.ddl-auto=update
 Contributions are welcome! Please fork the repository and submit a pull request for any enhancements or bug fixes.
 
 ## 🏆 Contact
-For any inquiries or questions, please contact emanuel.incarnato@gmail.com.
+For any inquiries or questions, please contact:
+Email : emanuel.incarnato@gmail.com
+Linkedin : https://www.linkedin.com/in/emanuel-incarnato-0ab679296/
