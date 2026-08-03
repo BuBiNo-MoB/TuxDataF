@@ -12,5 +12,5 @@ export interface iDistribution {
   logoUrl: string
   desktopImageUrl: string
   likes: number;
-  isLiked: boolean;
+  liked: boolean;
 }

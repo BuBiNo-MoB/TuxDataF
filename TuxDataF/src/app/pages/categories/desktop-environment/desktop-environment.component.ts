@@ -69,10 +69,10 @@ export class DesktopEnvironmentComponent implements OnInit {
   }
 
   toggleLike(distro: iDistribution): void {
-    if (distro.isLiked) {
+    if (distro.liked) {
       this.distributionService.removeLike(distro.id).subscribe({
         next: () => {
-          distro.isLiked = false;
+          distro.liked = false;
           distro.likes--;
         },
         error: (error: any) => {
@@ -82,7 +82,7 @@ export class DesktopEnvironmentComponent implements OnInit {
     } else {
       this.distributionService.addLike(distro.id).subscribe({
         next: () => {
-          distro.isLiked = true;
+          distro.liked = true;
           distro.likes++;
         },
         error: (error: any) => {

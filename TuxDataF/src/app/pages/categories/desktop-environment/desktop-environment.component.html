@@ -38,7 +38,7 @@
           </div>
           <div class="mt-2 text-center">
             <button (click)="toggleLike(distro)" class="btn btn-link">
-              <i [class]="distro.isLiked ? 'bi bi-heart-fill' : 'bi bi-heart'"></i>
+              <i [class]="distro.liked ? 'bi bi-heart-fill' : 'bi bi-heart'"></i>
             </button>
             <span>{{ distro.likes }}</span>
           </div>
